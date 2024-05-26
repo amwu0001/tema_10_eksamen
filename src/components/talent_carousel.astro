@@ -1,6 +1,6 @@
 ---
 import TalentCard from "./talent_card.astro";
-const data = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/talent", {
+const data = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/talent?order=name.asc", {
   method: "GET",
   headers: {
     apikey:
