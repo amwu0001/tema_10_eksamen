@@ -2,13 +2,6 @@
 import Skelet from "../layout/skelet.astro";
 import "../styles/generel.css";
 import TalentCarousel from "../components/talent_carousel.astro";
-const data = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/talent", {
-  method: "GET",
-  headers: {
-    apikey:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFubWF2YXh3aGpxcWhqZ2pxdXJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU1OTM0ODEsImV4cCI6MjAzMTE2OTQ4MX0.RDkLGM5hqlega6p_jA4OWoHfM2D8Iqrtah5GOXEY1e0",
-  },
-}).then((res) => res.json());
 ---
 <Skelet>
         <h1>Talent</h1>
