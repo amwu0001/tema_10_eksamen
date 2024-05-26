@@ -1,0 +1,62 @@
+---
+import "../styles/generel.css";
+const { data } = Astro.props;
+---
+
+<!-- hvad hvis der er mere end 2 filtreringer?? -->
+<article>
+  <div class="date_div">
+    <p class="menu">{data.date}</p>
+  </div>
+  <div class="margin">
+    <div class="event_grid">
+      <div class="event_tekst">
+        <h2>{data.headline}</h2>
+        <p>{data.text[0]}</p>
+        <a class="read_more" href=`whats_new/${data.slug}`>read more ></a>
+      </div>
+      <div class="img_grid">
+        <img src={data.index_pictures} alt={data.index_headline} />
+      </div>
+    </div>
+  </div>
+</article>
+
+<style>
+body{
+    margin: 0;
+}
+  .margin {
+    margin: 20px;
+  }
+  article{
+     display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .menu {
+    text-align: left;
+    border-bottom: 0.5px solid #1e1e1e;
+    margin-bottom: 3%;
+  }
+
+  .date_div {
+    text-align: right;
+    width: 80%;
+    align-self: flex-end;
+  }
+  .event_tekst{
+    align-self: flex-end;
+    padding-left: 20px;
+    text-align: right;
+  }
+  img {
+    width: 80%;
+
+    margin-top: 40px;
+  }
+  .img_grid {
+    display: flex;
+    justify-content: center;
+  }
+</style>

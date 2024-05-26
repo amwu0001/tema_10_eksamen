@@ -1,2 +1,8 @@
 ---
+import "../styles/generel.css";
+import LeftWn from "./Left_wn.astro";
+import RightWn from "./Right_wn.astro";
+const { data } = Astro.props;
 ---
+<LeftWn data={data}></LeftWn>
+<RightWn data={data}></RightWn>

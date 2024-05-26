@@ -1,0 +1,84 @@
+---
+import Event from "../components/Event.astro";
+import Recommendation from "../components/Recommendation.astro";
+import Skelet from "../layout/skelet.astro";
+import News from "../components/news.astro";
+---
+
+<Skelet>
+  <h1>What’s New?</h1>
+  <div class="filtrering">
+    <p id="filter_all">All</p>
+    <p id="filter_events">Events</p>
+    <p id="filter_news">News</p>
+    <p id="filter_recommendations">Recommendations</p>
+  </div>
+  <div id="news_container">
+  <News></News>
+  </div>
+  <div id="recommendation_container">
+  <Recommendation></Recommendation>
+  </div>
+  <div id="event_container">
+  <Event></Event>
+  </div>
+</Skelet>
+
+<style>
+  .filtrering {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 20px;
+    width: 70%;
+  }
+
+  p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  h1{
+    margin: 0px 20px;
+  }
+.remove{
+    display: none;
+    }
+</style>
+
+<script>
+  const all = document.querySelector("#filter_all");
+  const events = document.querySelector("#filter_events");
+  const news = document.querySelector("#filter_news");
+  const recommendations = document.querySelector("#filter_recommendations");
+
+    all.addEventListener("click", showAll);
+    news.addEventListener("click", newsFiltering);
+    recommendations.addEventListener("click", recommendationFiltering);
+    events.addEventListener("click", eventFiltering);
+
+  function eventFiltering() {
+    console.log(1)
+    document.querySelector("#recommendation_container").classList.add("remove");
+    document.querySelector("#news_container").classList.add("remove");
+    document.querySelector("#event_container").classList.remove("remove");
+  }
+   function newsFiltering() {
+    console.log(2)
+    document.querySelector("#recommendation_container").classList.add("remove");
+    document.querySelector("#event_container").classList.add("remove");
+    document.querySelector("#news_container").classList.remove("remove");
+  }
+   function recommendationFiltering() {
+    console.log(3)
+    document.querySelector("#news_container").classList.add("remove");
+    document.querySelector("#event_container").classList.add("remove");
+    document.querySelector("#recommendation_container").classList.remove("remove");
+
+  }
+     function showAll() {
+    console.log(4)
+    document.querySelector("#recommendation_container").classList.remove("remove");
+    document.querySelector("#event_container").classList.remove("remove");
+    document.querySelector("#news_container").classList.remove("remove");
+
+  }
+</script>
