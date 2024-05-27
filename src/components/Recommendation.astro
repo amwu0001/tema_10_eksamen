@@ -1,18 +1,23 @@
 ---
-import Header from "./header.astro";
+import LeftWn from "./Left_wn.astro";
+import RightWn from "./Right_wn.astro";
 const data = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/atm?type=eq.Recommendation", {
   method: "GET",
   headers: {
-    apikey:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFubWF2YXh3aGpxcWhqZ2pxdXJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU1OTM0ODEsImV4cCI6MjAzMTE2OTQ4MX0.RDkLGM5hqlega6p_jA4OWoHfM2D8Iqrtah5GOXEY1e0",
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFubWF2YXh3aGpxcWhqZ2pxdXJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU1OTM0ODEsImV4cCI6MjAzMTE2OTQ4MX0.RDkLGM5hqlega6p_jA4OWoHfM2D8Iqrtah5GOXEY1e0",
   },
 }).then((res) => res.json());
 ---
 
-<div class="carousel">
+<div>
   {
-    data.map((data) => {
-      return <Header data={data} />;
+    data.map((data, i, arr) => {
+      console.log("i:", i);
+      if (i % 2 == 0) {
+        return <LeftWn data={data} />;
+      } else {
+        return <RightWn data={data} />;
+      }
     })
   }
 </div>
