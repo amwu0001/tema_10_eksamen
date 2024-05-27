@@ -27,7 +27,7 @@ const { myData } = Astro.props;
     <h3>{myData.type}</h3>
     <h3>{myData.date}</h3>
   </div>
-  <div class="grid_whatsnew">
+  <div class="p1_2img">
     <img class="img_1" src={myData.pictures[0]} alt={myData.index_headline[0]} />
     <img class="img_2" src={myData.pictures[1]} alt={myData.index_headline[1]} />
 
@@ -74,25 +74,28 @@ const { myData } = Astro.props;
     object-position: 20% 26%;
   }
   .img_2 {
-    position: absolute;
-    left: px;
+    position: relative;
+    width: 100%;
+    /* left: -65%;
     top: 30%;
-    width: 103px;
     height: 387px;
     object-fit: cover;
     object-position: 71%;
+    overflow: hidden; */
   }
 
-  .grid_whatsnew {
+  .p1_2img {
     display: grid;
-    grid-template-columns: auto 60%;
-    grid-template-rows: 1fr;
+    /* grid-template-columns: auto 60%; */
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
 
   .paragraf_1 {
     grid-column: 2;
     grid-row: 2;
     margin: 32px 13px;
+    overflow: hidden;
   }
 
   .paragraf_2 {
@@ -118,40 +121,53 @@ const { myData } = Astro.props;
     display: flex;
     flex-direction: row;
     height: 452px;
+    overflow: hidden;
   }
 
   .img_6 {
     margin: 20px 0;
+    overflow: hidden;
   }
 
   .img_6_big {
     margin: 0 20px;
   }
   .img_6_small {
-    position: absolute;
-    bottom: -61%;
+    position: relative;
+    bottom: -67%;
     width: 29%;
     left: 3%;
+    overflow: hidden;
   }
+  /* desktop view */
+  @media (min-width: 800px) {
+    .topbar {
+      margin: 0 20px;
+      margin-top: 10%;
+    }
 
-  /* .img_1 {
-    margin-bottom: 30%;
-  }
-  .img_2 {
-    position: absolute;
-    left: 0;
-    top: 40%;
-    width: 30%;
-  }
+    .p1_2img {
+      display: grid;
+      grid-template-columns: 50% auto;
+      grid-template-rows: auto auto;
+    }
+    .img_1 {
+      grid-column: 2;
+      width: auto;
+    }
 
-  .text {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-  }
+    .img_2 {
+      position: static;
+      grid-column: 2;
+      grid-row: 1;
+      width: 50%;
+    }
 
-  h2,
-  p {
-    justify-content: end;
-  } */
+    .paragraf_1 {
+      grid-column: 1;
+      grid-row: 1;
+      margin: 0 20px;
+      height: auto;
+    }
+  }
 </style>
