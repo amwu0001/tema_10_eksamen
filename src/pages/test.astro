@@ -7,6 +7,7 @@ import News from "../components/news.astro";
 
 <Skelet>
   <h1>What’s New?</h1>
+  <!-- <p>Read about latest releases, upcoming events, what's on our radar and much more!</p> -->
   <div class="filtrering">
     <p id="filter_all">All</p>
     <p id="filter_events">Events</p>
@@ -37,11 +38,23 @@ import News from "../components/news.astro";
     cursor: pointer;
   }
   h1{
-    margin: 0px 20px;
+    margin-left: 20px;
   }
 .remove{
     display: none;
     }
+#event_container{
+  margin-bottom: 50px;
+}
+@media (min-width: 800px) {
+ .filtrering {
+    width: 30%;
+    margin-left: 35px;
+  }
+  h1{
+    margin-left: 35px;
+  }
+}
 </style>
 
 <script>

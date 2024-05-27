@@ -16,7 +16,8 @@ const { data } = Astro.props;
         <a class="read_more" href=`whats_new/${data.slug}`>read more ></a>
       </div>
       <div class="img_grid">
-        <img src={data.index_pictures} alt={data.index_headline} />
+        <img src={data.index_pictures} alt={data.index_headline} class="img_1"/>
+        <img src={data.pictures[2]} alt={data.index_headline} class="img_2"/>
       </div>
     </div>
   </div>
@@ -50,13 +51,41 @@ body{
     padding-left: 20px;
     text-align: right;
   }
-  img {
-    width: 80%;
-
-    margin-top: 40px;
+  .img_1 {
+    height: 320px;
+    margin-top: 65px;
+    margin-left: 25px;
+  }
+  .img_2 {
+    height: 120px;
+    width: 200px;
+    object-fit: cover;
+    left: -100px;
+    top: 20px;
+    position: relative;
   }
   .img_grid {
     display: flex;
-    justify-content: center;
+    justify-content: left;
+  }
+  @media (min-width: 800px) {
+    .event_tekst{
+    padding-left: 500px;
+    padding-right: 35px;
+  }
+  .date_div {
+    width: 70%;
+  }
+  .img_1 {
+    margin-top: 15px;
+    margin-left: 450px;
+  }
+  .img_2 {
+    left: -80px;
+    top: -17px;
+  }
+  .menu {
+    font-size: 50px;
+  }
   }
 </style>

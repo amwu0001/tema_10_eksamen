@@ -39,12 +39,29 @@ const { data } = Astro.props;
     display: flex;
   }
   img {
-    width: 80%;
-
+    height: 265px;
     margin-top: 40px;
   }
   .img_grid {
     display: flex;
     justify-content: center;
+  }
+   @media (min-width: 800px) {
+  .date_div {
+    width: 75%;
+  }
+  .menu {
+    font-size: 50px;
+  }
+  .event_grid{
+    margin-left: 35px;
+    padding-right: 400px;
+  }
+   .img_grid {
+    justify-content: right;
+  }
+   img {
+    margin-top: 20px;
+  }
   }
 </style>
