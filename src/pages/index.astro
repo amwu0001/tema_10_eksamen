@@ -100,7 +100,6 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
 
     karruselImages.forEach((img) => {
       img.addEventListener("mousedown", onImageDown);
-      img.addEventListener("animationiteration", onImageDown);
     });
 
     function onImageDown(event) {
@@ -108,11 +107,15 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
       bigImage.src = event.target.src;
       bigImageTitle.textContent = event.target.alt;
       bigImageTitle.classList.add("h3_desktop");
+      this.classList.add("img_color");
     }
   }
 </script>
 
 <style>
+  .img_color {
+    filter: grayscale(0%) !important;
+  }
   .overskrift_desktop {
     display: none;
   }
