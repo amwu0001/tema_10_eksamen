@@ -1,5 +1,6 @@
 ---
 import Skelet from "../layout/skelet.astro";
+import Arrow from "../components/arrow.astro";
 
 export async function getStaticPaths() {
   const data = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/atm", {
@@ -49,6 +50,7 @@ const { myData } = Astro.props;
     <img class="img_6_big" src={myData.pictures[5]} alt={myData.pictures[5]} />
     <img class="img_6_small" src={myData.pictures[5]} alt={myData.pictures[5]} />
   </div>
+  <Arrow link="whats_new.html" />
 </Skelet>
 
 <style>
