@@ -102,12 +102,20 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
       img.addEventListener("mousedown", onImageDown);
     });
 
+    let lastImg;
     function onImageDown(event) {
       console.log(event);
+
+      if (lastImg) {
+        lastImg.classList.remove("img_color");
+      }
+
       bigImage.src = event.target.src;
       bigImageTitle.textContent = event.target.alt;
       bigImageTitle.classList.add("h3_desktop");
-      this.classList.add("img_color");
+      event.target.classList.add("img_color");
+
+      lastImg = event.target;
     }
   }
 </script>
