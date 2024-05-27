@@ -46,6 +46,9 @@ import News from "../components/news.astro";
 #event_container{
   margin-bottom: 50px;
 }
+.underline{
+text-decoration: underline;
+}
 @media (min-width: 800px) {
  .filtrering {
     width: 30%;
@@ -63,6 +66,7 @@ import News from "../components/news.astro";
   const news = document.querySelector("#filter_news");
   const recommendations = document.querySelector("#filter_recommendations");
 
+    window.addEventListener("load", showAll);
     all.addEventListener("click", showAll);
     news.addEventListener("click", newsFiltering);
     recommendations.addEventListener("click", recommendationFiltering);
@@ -73,25 +77,40 @@ import News from "../components/news.astro";
     document.querySelector("#recommendation_container").classList.add("remove");
     document.querySelector("#news_container").classList.add("remove");
     document.querySelector("#event_container").classList.remove("remove");
+    events.classList.add("underline");
+    recommendations.classList.remove("underline");
+    all.classList.remove("underline");
+    news.classList.remove("underline");
+
   }
    function newsFiltering() {
     console.log(2)
     document.querySelector("#recommendation_container").classList.add("remove");
     document.querySelector("#event_container").classList.add("remove");
     document.querySelector("#news_container").classList.remove("remove");
+    news.classList.add("underline");
+    recommendations.classList.remove("underline");
+    all.classList.remove("underline");
+    events.classList.remove("underline");
   }
    function recommendationFiltering() {
     console.log(3)
     document.querySelector("#news_container").classList.add("remove");
     document.querySelector("#event_container").classList.add("remove");
     document.querySelector("#recommendation_container").classList.remove("remove");
-
+    recommendations.classList.add("underline");
+    news.classList.remove("underline");
+    all.classList.remove("underline");
+    events.classList.remove("underline");
   }
      function showAll() {
     console.log(4)
     document.querySelector("#recommendation_container").classList.remove("remove");
     document.querySelector("#event_container").classList.remove("remove");
     document.querySelector("#news_container").classList.remove("remove");
-
+    all.classList.add("underline");
+    news.classList.remove("underline");
+    recommendations.classList.remove("underline");
+    events.classList.remove("underline");
   }
 </script>
