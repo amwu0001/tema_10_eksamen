@@ -4,7 +4,7 @@ const { data } = Astro.props;
 ---
 
 <!-- hvad hvis der er mere end 2 filtreringer?? -->
-<article>
+<a href=`${data.slug_wn}`><article>
   <div class="date_div">
     <p class="menu">{data.date}</p>
   </div>
@@ -13,7 +13,7 @@ const { data } = Astro.props;
       <div class="event_tekst">
         <h2>{data.headline}</h2>
         <p>{data.text[0]}</p>
-        <a class="read_more" href=`whats_new/${data.slug}`>read more ></a>
+        <a class="read_more" href=`${data.slug_wn}`>read more ></a>
       </div>
       <div class="img_grid">
         <img src={data.index_pictures} alt={data.index_headline} class="img_1"/>
@@ -21,19 +21,20 @@ const { data } = Astro.props;
       </div>
     </div>
   </div>
-</article>
+</article></a>
 
 <style>
+  a{
+    text-decoration: none;
+        display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 body{
     margin: 0;
 }
   .margin {
     margin: 20px;
-  }
-  article{
-     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
   }
   .menu {
     text-align: left;

@@ -13,7 +13,7 @@ const { data } = Astro.props;
       <div class="event_tekst">
         <h2>{data.headline}</h2>
         <p>{data.text}</p>
-        <a class="read_more" href=`whats_new/${data.slug}`>read more ></a>
+        <a class="read_more" href=`${data.slug_wn}`>read more ></a>
       </div>
       <div class="img_grid">
         <img src={data.index_pictures} alt={data.index_headline} />
