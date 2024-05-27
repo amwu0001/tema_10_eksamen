@@ -59,7 +59,7 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     }
     {
       indexData.map((data) => {
-        return <img src={data.index_pictures2} alt={data.index_headline} />;
+        return <img src={data.index_pictures} alt={data.index_headline} />;
       })
     }
   </div>
@@ -72,6 +72,7 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     let karruselImages = document.querySelectorAll(".karrusel img");
     let bigImage = document.querySelector(".big_img_container img");
     let bigImageTitle = document.querySelector(".imgtxt");
+    const duplicatedIndexData = indexData.concat(indexData);
     console.log("karruselImages", karruselImages);
 
     karruselImages.forEach((img) => {

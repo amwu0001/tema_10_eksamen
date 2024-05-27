@@ -40,14 +40,14 @@ const { myData } = Astro.props;
       <p>{myData.text[1]}</p>
     </div>
     <div class="raekke_img">
-      <img src={myData.pictures[2]} alt={myData.index_headline[2]} />
-      <img src={myData.pictures[3]} alt={myData.index_headline[3]} />
-      <img src={myData.pictures[4]} alt={myData.index_headline[4]} />
+      <img src={myData.pictures[2]} alt={myData.pictures[2]} />
+      <img src={myData.pictures[3]} alt={myData.pictures[3]} />
+      <img src={myData.pictures[4]} alt={myData.pictures[4]} />
     </div>
   </div>
   <div class="img_6">
-    <img class="img_6_big" src={myData.pictures[5]} alt={myData.index_headline[5]} />
-    <img class="img_6_small" src={myData.pictures[5]} alt={myData.index_headline[5]} />
+    <img class="img_6_big" src={myData.pictures[5]} alt={myData.pictures[5]} />
+    <img class="img_6_small" src={myData.pictures[5]} alt={myData.pictures[5]} />
   </div>
 </Skelet>
 
@@ -67,14 +67,14 @@ const { myData } = Astro.props;
 
   .img_1 {
     grid-column: 1/3;
-    width: 346px;
     height: 149px;
     object-fit: cover;
+    object-position: 20% 26%;
   }
   .img_2 {
     position: absolute;
-    left: 23px;
-    top: 28%;
+    left: px;
+    top: 30%;
     width: 103px;
     height: 387px;
     object-fit: cover;
@@ -83,7 +83,7 @@ const { myData } = Astro.props;
 
   .grid_whatsnew {
     display: grid;
-    grid-template-columns: 1fr 60%;
+    grid-template-columns: auto 60%;
     grid-template-rows: 1fr;
   }
 
@@ -95,17 +95,15 @@ const { myData } = Astro.props;
 
   .paragraf_2 {
     width: 45%;
-
-    align-self: center;
-    margin: 32px 20px;
+    margin: 59px 32px;
   }
 
   .raekke_img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30%;
-    justify-content: flex-end;
+    width: 22%;
+    justify-content: unset;
     margin-left: auto;
     margin-right: 20px;
   }
@@ -117,6 +115,7 @@ const { myData } = Astro.props;
   .p2_3img {
     display: flex;
     flex-direction: row;
+    height: 452px;
   }
 
   .img_6 {
@@ -128,8 +127,8 @@ const { myData } = Astro.props;
   }
   .img_6_small {
     position: absolute;
-    bottom: -49%;
-    width: 40%;
+    bottom: -61%;
+    width: 29%;
     left: 3%;
   }
 
