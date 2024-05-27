@@ -39,29 +39,53 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     <h2>ALPHA</h2>
     <h3>Management & Artist Services</h3>
   </div>
-
-  <div class="karrusel">
-    <!-- evt ændre her ift hvor mange billeder man vil have -->
-    {
-      indexData.map((data) => {
-        return <img src={data.index_pictures} alt={data.index_headline} />;
-      })
-    }
-    {
-      indexData.map((data) => {
-        return <img src={data.index_pictures2} alt={data.index_headline} />;
-      })
-    }
-    {
-      indexData.map((data) => {
-        return <img src={data.index_pictures} alt={data.index_headline} />;
-      })
-    }
-    {
-      indexData.map((data) => {
-        return <img src={data.index_pictures2} alt={data.index_headline} />;
-      })
-    }
+  <div class="karrusel_parent">
+    <div class="karrusel">
+      <!-- evt ændre her ift hvor mange billeder man vil have -->
+      {
+        indexData.map((data) => {
+          return <img src={data.index_pictures} alt={data.index_headline} />;
+        })
+      }
+      {
+        indexData.map((data) => {
+          return <img src={data.index_pictures2} alt={data.index_headline} />;
+        })
+      }
+      {
+        indexData.map((data) => {
+          return <img src={data.index_pictures} alt={data.index_headline} />;
+        })
+      }
+      {
+        indexData.map((data) => {
+          return <img src={data.index_pictures2} alt={data.index_headline} />;
+        })
+      }
+    </div>
+    <div class="karrusel">
+      <!-- evt ændre her ift hvor mange billeder man vil have -->
+      {
+        indexData.map((data) => {
+          return <img src={data.index_pictures} alt={data.index_headline} />;
+        })
+      }
+      {
+        indexData.map((data) => {
+          return <img src={data.index_pictures2} alt={data.index_headline} />;
+        })
+      }
+      {
+        indexData.map((data) => {
+          return <img src={data.index_pictures} alt={data.index_headline} />;
+        })
+      }
+      {
+        indexData.map((data) => {
+          return <img src={data.index_pictures2} alt={data.index_headline} />;
+        })
+      }
+    </div>
   </div>
 </Skelet>
 
@@ -76,6 +100,7 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
 
     karruselImages.forEach((img) => {
       img.addEventListener("mousedown", onImageDown);
+      img.addEventListener("animationiteration", onImageDown);
     });
 
     function onImageDown(event) {
@@ -109,18 +134,33 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     object-fit: cover;
   }
 
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .karrusel_parent {
+    overflow: hidden;
+    white-space: nowrap;
+  }
   .karrusel {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    overflow: scroll;
+    /* overflow: scroll; */
     /* hides scrollbar */
     scrollbar-width: none;
+    animation: 100s slide infinite linear;
+    display: inline-block;
   }
 
-  .karrusel.sliding_transition {
+  /* .karrusel.sliding_transition {
     transition: transform 0.5s ease-in-out;
-  }
+  } */
   body {
     margin: 0;
   }
@@ -177,6 +217,12 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     justify-content: space-between;
     margin-left: initial;
   }
+  .karrusel img {
+    filter: grayscale(100%);
+  }
+  .karrusel img:hover {
+    filter: grayscale(0%);
+  }
 
   /* desktop view */
   @media (min-width: 800px) {
@@ -210,12 +256,6 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
 
     .karrusel {
       margin-top: 20px;
-    }
-    .karrusel img {
-      filter: grayscale(100%);
-    }
-    .karrusel img:hover {
-      filter: grayscale(0%);
     }
   }
 </style>
