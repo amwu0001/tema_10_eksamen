@@ -156,6 +156,84 @@ const { myData } = Astro.props;
     width: 56%;
   }
 
+  /* DESKTOP */
   @media (min-width: 800px) {
+    .topbar {
+      margin: 5% 20px;
+    }
+
+    /* GRIDS */
+    .p1_2img_grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      margin-top: 10%;
+    }
+
+    .p2_3img_grid {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      margin-bottom: -352px;
+    }
+
+    .img6_grid {
+      justify-items: end;
+      position: relative;
+      top: -34%;
+      right: 10%;
+    }
+
+    /* TEKST */
+    .paragraf_1 {
+      grid-column: 1/3;
+      grid-row: 1/3;
+      margin: 0 20px;
+      max-width: 600px;
+    }
+    .paragraf_2 {
+      grid-column: 2;
+      text-align: right;
+      margin-right: 20px;
+      margin-left: 30%;
+    }
+
+    /* BILLEDER */
+
+    .img_1 {
+      grid-column: 3/5;
+      grid-row: 1/2;
+      height: 141px;
+      object-fit: cover;
+      object-position: 20% 26%;
+      position: relative;
+      left: 40px;
+      width: 551px;
+      top: -40%;
+    }
+    .img_2 {
+      grid-row: 1/3;
+      grid-column: 4/5;
+      position: static;
+      width: 328px;
+      margin-top: 10%;
+      margin-right: 20px;
+    }
+
+    .raekke_img {
+      grid-column: 1;
+      display: grid;
+      position: relative;
+      top: -22%;
+      left: 20%;
+    }
+
+    .img_6_big {
+      width: 30%;
+    }
+    .img_6_small {
+      position: relative;
+      top: 108%;
+      left: 52%;
+      width: 25%;
+    }
   }
 </style>
