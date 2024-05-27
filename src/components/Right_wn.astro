@@ -4,35 +4,37 @@ const { data } = Astro.props;
 ---
 
 <!-- hvad hvis der er mere end 2 filtreringer?? -->
-<a href=`${data.slug_wn}`><article>
-  <div class="date_div">
-    <p class="menu">{data.date}</p>
-  </div>
-  <div class="margin">
-    <div class="event_grid">
-      <div class="event_tekst">
-        <h2>{data.headline}</h2>
-        <p>{data.text[0]}</p>
-        <a class="read_more" href=`${data.slug_wn}`>read more ></a>
-      </div>
-      <div class="img_grid">
-        <img src={data.index_pictures} alt={data.index_headline} class="img_1"/>
-        <img src={data.pictures[2]} alt={data.index_headline} class="img_2"/>
+<a href=`${data.slug_wn}`
+  ><article>
+    <div class="date_div">
+      <p class="menu">{data.date}</p>
+    </div>
+    <div class="margin">
+      <div class="event_grid">
+        <div class="event_tekst">
+          <h2>{data.headline}</h2>
+          <p>{data.text[0]}</p>
+          <a class="read_more" href=`${data.slug_wn}`>read more ></a>
+        </div>
+        <div class="img_grid">
+          <img src={data.index_pictures} alt={data.index_headline} class="img_1" />
+          <img src={data.pictures[2]} alt={data.index_headline} class="img_2" />
+        </div>
       </div>
     </div>
-  </div>
-</article></a>
+  </article></a
+>
 
 <style>
-  a{
+  a {
     text-decoration: none;
-        display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
   }
-body{
+  body {
     margin: 0;
-}
+  }
   .margin {
     margin: 20px;
   }
@@ -47,7 +49,7 @@ body{
     width: 80%;
     align-self: flex-end;
   }
-  .event_tekst{
+  .event_tekst {
     align-self: flex-end;
     padding-left: 20px;
     text-align: right;
@@ -70,23 +72,23 @@ body{
     justify-content: left;
   }
   @media (min-width: 800px) {
-    .event_tekst{
-    padding-left: 500px;
-    padding-right: 35px;
-  }
-  .date_div {
-    width: 70%;
-  }
-  .img_1 {
-    margin-top: 15px;
-    margin-left: 450px;
-  }
-  .img_2 {
-    left: -80px;
-    top: -17px;
-  }
-  .menu {
-    font-size: 50px;
-  }
+    .event_tekst {
+      padding-left: 500px;
+      padding-right: 35px;
+    }
+    .date_div {
+      width: 70%;
+    }
+    .img_1 {
+      margin-top: 15px;
+      margin-left: 75px;
+    }
+    .img_2 {
+      left: -80px;
+      top: -17px;
+    }
+    .menu {
+      font-size: 50px;
+    }
   }
 </style>

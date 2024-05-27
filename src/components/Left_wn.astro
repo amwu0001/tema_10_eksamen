@@ -5,26 +5,28 @@ const { data } = Astro.props;
 ---
 
 <!-- hvad hvis der er mere end 2 filtreringer?? -->
-<a href=`${data.slug_wn}`><article class={data.type}>
-  <div class="date_div">
-    <p class="menu">{data.date}</p>
-  </div>
-  <div class="margin">
-    <div class="event_grid">
-      <div class="event_tekst">
-        <h2>{data.headline}</h2>
-        <p>{data.text[0]}</p>
-        <a class="read_more" href=`${data.slug_wn}`>read more ></a>
-      </div>
-      <div class="img_grid">
-        <img src={data.index_pictures} alt={data.index_headline} />
+<a href=`${data.slug_wn}`
+  ><article class={data.type}>
+    <div class="date_div">
+      <p class="menu">{data.date}</p>
+    </div>
+    <div class="margin">
+      <div class="event_grid">
+        <div class="event_tekst">
+          <h2>{data.headline}</h2>
+          <p>{data.text[0]}</p>
+          <a class="read_more" href=`${data.slug_wn}`>read more ></a>
+        </div>
+        <div class="img_grid">
+          <img src={data.index_pictures} alt={data.index_headline} />
+        </div>
       </div>
     </div>
-  </div>
-</article></a>
+  </article></a
+>
 
 <style>
-  a{
+  a {
     text-decoration: none;
   }
   .margin {
@@ -49,22 +51,28 @@ const { data } = Astro.props;
     display: flex;
     justify-content: center;
   }
-   @media (min-width: 800px) {
-  .date_div {
-    width: 75%;
-  }
-  .menu {
-    font-size: 50px;
-  }
-  .event_grid{
-    margin-left: 35px;
-    padding-right: 400px;
-  }
-   .img_grid {
-    justify-content: right;
-  }
-   img {
-    margin-top: 20px;
-  }
+  @media (min-width: 800px) {
+    .date_div {
+      width: 75%;
+    }
+    .menu {
+      font-size: 50px;
+    }
+    .event_grid {
+      margin-left: 20px;
+      padding-right: 400px;
+      height: 350px;
+    }
+    .img_grid {
+      justify-content: right;
+    }
+    img {
+      margin-top: 20px;
+      position: relative;
+      top: -200px;
+      left: 330px;
+      object-fit: cover;
+      max-width: 300px;
+    }
   }
 </style>

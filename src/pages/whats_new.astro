@@ -15,13 +15,13 @@ import News from "../components/news.astro";
     <p id="filter_recommendations">Recommendations</p>
   </div>
   <div id="news_container">
-  <News></News>
+    <News />
   </div>
   <div id="recommendation_container">
-  <Recommendation></Recommendation>
+    <Recommendation />
   </div>
   <div id="event_container">
-  <Event></Event>
+    <Event />
   </div>
 </Skelet>
 
@@ -37,27 +37,27 @@ import News from "../components/news.astro";
     text-decoration: underline;
     cursor: pointer;
   }
-  h1{
+  h1 {
     margin-left: 20px;
   }
-.remove{
+  .remove {
     display: none;
+  }
+  #event_container {
+    margin-bottom: 50px;
+  }
+  .underline {
+    text-decoration: underline;
+  }
+  @media (min-width: 800px) {
+    .filtrering {
+      width: 30%;
+      margin-left: 35px;
     }
-#event_container{
-  margin-bottom: 50px;
-}
-.underline{
-text-decoration: underline;
-}
-@media (min-width: 800px) {
- .filtrering {
-    width: 30%;
-    margin-left: 35px;
+    h1 {
+      margin-left: 35px;
+    }
   }
-  h1{
-    margin-left: 35px;
-  }
-}
 </style>
 
 <script>
@@ -66,14 +66,14 @@ text-decoration: underline;
   const news = document.querySelector("#filter_news");
   const recommendations = document.querySelector("#filter_recommendations");
 
-    window.addEventListener("load", showAll);
-    all.addEventListener("click", showAll);
-    news.addEventListener("click", newsFiltering);
-    recommendations.addEventListener("click", recommendationFiltering);
-    events.addEventListener("click", eventFiltering);
+  window.addEventListener("load", showAll);
+  all.addEventListener("click", showAll);
+  news.addEventListener("click", newsFiltering);
+  recommendations.addEventListener("click", recommendationFiltering);
+  events.addEventListener("click", eventFiltering);
 
   function eventFiltering() {
-    console.log(1)
+    console.log(1);
     document.querySelector("#recommendation_container").classList.add("remove");
     document.querySelector("#news_container").classList.add("remove");
     document.querySelector("#event_container").classList.remove("remove");
@@ -81,10 +81,9 @@ text-decoration: underline;
     recommendations.classList.remove("underline");
     all.classList.remove("underline");
     news.classList.remove("underline");
-
   }
-   function newsFiltering() {
-    console.log(2)
+  function newsFiltering() {
+    console.log(2);
     document.querySelector("#recommendation_container").classList.add("remove");
     document.querySelector("#event_container").classList.add("remove");
     document.querySelector("#news_container").classList.remove("remove");
@@ -93,8 +92,8 @@ text-decoration: underline;
     all.classList.remove("underline");
     events.classList.remove("underline");
   }
-   function recommendationFiltering() {
-    console.log(3)
+  function recommendationFiltering() {
+    console.log(3);
     document.querySelector("#news_container").classList.add("remove");
     document.querySelector("#event_container").classList.add("remove");
     document.querySelector("#recommendation_container").classList.remove("remove");
@@ -103,8 +102,8 @@ text-decoration: underline;
     all.classList.remove("underline");
     events.classList.remove("underline");
   }
-     function showAll() {
-    console.log(4)
+  function showAll() {
+    console.log(4);
     document.querySelector("#recommendation_container").classList.remove("remove");
     document.querySelector("#event_container").classList.remove("remove");
     document.querySelector("#news_container").classList.remove("remove");

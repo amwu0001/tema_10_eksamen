@@ -6,6 +6,7 @@
   <div class="header_mobile">
     <a href="index.html"><img class="logo" src="/imgs/logo.svg" alt="burger" /></a>
     <img class="ikon_burger" src="/imgs/lines.svg" alt="burger" />
+    <img id="ikon_kryds" src="/imgs/kryds.svg" alt="kryds" />
   </div>
   <div id="navbar_mobile">
     <a href="talent.html" class="right_nav_mobile">TALENT</a>
@@ -46,6 +47,18 @@
     padding-top: 30px;
     padding-bottom: 30px;
   }
+  #ikon_kryds {
+    display: none;
+  }
+  #ikon_kryds.change {
+    display: block;
+    max-width: 40px;
+    z-index: 130;
+    cursor: pointer;
+  }
+  .ikon_burger.hide {
+    display: none;
+  }
   /*streger over og under + position af tekst*/
   .right_nav_mobile {
     text-align: left;
@@ -76,33 +89,44 @@
   .ikon_burger {
     max-width: 40px;
     z-index: 100;
+    cursor: pointer;
   }
   .logo {
     max-width: 55px;
     z-index: 110;
     position: relative;
   }
+  .logo:hover {
+    scale: 1.1;
+  }
   @media (min-width: 800px) {
-  .logo {
-    max-width: 90px;
+    .logo {
+      max-width: 90px;
+    }
+    .ikon_burger {
+      max-width: 50px;
+    }
+    a {
+      font-size: 35px;
+    }
+    #ikon_kryds.change {
+      max-width: 55px;
+    }
   }
-  .ikon_burger {
-    max-width: 50px;
-  }
-   a {
-    font-size: 35px;
-  }
-}
 </style>
 
 <script>
-  const burger = document.querySelector(".header_mobile .ikon_burger");
+  const burger = document.querySelector(".ikon_burger");
   const menu = document.querySelector("#navbar_mobile");
+  const kryds = document.querySelector(".header_mobile #ikon_kryds");
 
   burger.addEventListener("click", burgermenu);
+  kryds.addEventListener("click", burgermenu);
 
   function burgermenu() {
     console.log("burger");
     menu.classList.toggle("hide");
+    burger.classList.toggle("hide");
+    kryds.classList.toggle("change");
   }
 </script>
