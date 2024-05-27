@@ -3,74 +3,132 @@ import Skelet from "../layout/skelet.astro";
 ---
 
 <Skelet>
-   <style>
+  <style>
+    @media (max-width: 600px) {
       .mission {
-         display: flex;
-         align-items: center;
-         gap: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 0.5px solid #1e1e1e;
       }
+      .title {
+        margin-left: 15px;
+        /* margin-right: 50px;
+        flex-shrink: 0; */
+      }
+      /* .about {
+        border-bottom: 0.5px solid #1e1e1e;
+      } */
 
       .mission_img img {
-         width: 300px;
-         height: auto;
-         padding-left: 10%;
+        width: 250px;
+        height: auto;
+        padding-left: 2%;
+        padding-right: 20%;
+        /* padding-bottom:20px; */
+        /* border-bottom: 0.5px solid #1e1e1e; */
       }
 
       .cocohanne_img img {
-         width: 650px;
-         display: block;
-         margin: 0 auto;
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+        border-top: 0.5px solid #1e1e1e;
+        border-bottom: 0.5px solid #1e1e1e;
+        padding-top: 15px;
+        padding-bottom: 15px;
       }
 
-      .vertical-line {
-         width: 1px;
-         height: 100%;
-         background-color: black;
+      .history_container {
+        border-bottom: 0.5px solid #1e1e1e;
+        border-top: 0.5px solid #1e1e1e;
+        display: flex;
+        align-items: flex-start;
       }
-
       .mission-container {
-         flex: 1;
-         padding-left: 20px;
+        flex: 1;
+        /* padding-left: 10px; */
+        border-left: 0.5px solid #1e1e1e;
+
+        margin-left: 10px;
+        width: 100%;
+      }
+      .culture_container {
+        /* display: flex;
+        align-items: flex-start; */
+        border-bottom: 0.5px solid #1e1e1e;
+      }
+      .culture_container .title {
+        margin-right: 50px;
+        flex-shrink: 0;
       }
 
       .mission-container,
       .culture-container p,
       .history_container p {
-         padding-left: 10%;
+        padding-left: 5%;
+        padding-right: 5%;
       }
-      /*tilføjer padding under den sidste hr*/
-      hr:last-of-type {
-         margin-bottom: 50px;
+    }
+    @media (min-width: 600px) {
+      .mission {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 0.5px solid #1e1e1e;
       }
-   </style>
-   <h1>About</h1>
-   <hr />
-   <div class="history_container">
+    }
+  </style>
+  <div class="about"></div>
+  <h1>About</h1>
+
+  <div class="history_container">
+    <div class="title">
       <h2>History</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et provident vel, aperiam iure pariatur, eius perferendis reprehenderit at minus necessitatibus nobis. Fuga sit exercitationem aspernatur pariatur maxime molestiae harum tempore.</p>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis corrupti fugiat velit inventore nemo nesciunt, vel, reiciendis repellat, quod repudiandae architecto facilis facere. Molestiae molestias fugiat ab dicta, magni impedit!</p>
-   </div>
-   <hr />
-   <div class="mission">
-      <div class="mission_img">
-         <img src="/imgs/mission.png" alt="a picture of the founders" />
-      </div>
-      <div class="vertical-line"></div>
-      <div class="mission-container">
-         <h2>Mission</h2>
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
-   </div>
-   <hr />
-   <div class="culture-container">
+    </div>
+
+    <p>
+      Alpha is an artist management agency dedicated to supporting and promoting
+      emerging talent in the music industry. Founded with a vision to create
+      more space for alternative music in Denmark and beyond, Alpha focuses on
+      empowering artists and helping them reach new audiences both domestically
+      and internationally.
+    </p>
+  </div>
+
+  <div class="mission">
+    <div class="mission_img">
+      <img src="/imgs/mission.png" alt="a picture of the founders" />
+    </div>
+
+    <div class="mission-container">
+      <h2>Mission</h2>
+      <p>
+        One of our key missions is to foster diversity within the Danish music
+        scene by championing up-and-coming artists and providing them with the
+        resources and support they need to thrive. Whether it's through artist
+        services, event management, or strategic partnerships, Alpha is
+        committed to driving growth and innovation in the industry.
+      </p>
+    </div>
+  </div>
+
+  <div class="culture-container">
+    <div class="title">
       <h2>Culture</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-   </div>
-   <hr />
-   <div class="cocohanne_img">
-      <img src="/imgs/cocohanne.png" alt="Coco and Hanne, the founders of Alpha" />
-   </div>
-   <hr />
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+    </p>
+  </div>
+
+  <div class="cocohanne_img">
+    <img
+      src="/imgs/cocohanne.png"
+      alt="Coco and Hanne, the founders of Alpha"
+    />
+  </div>
 </Skelet>
