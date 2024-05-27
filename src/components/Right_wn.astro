@@ -1,0 +1,92 @@
+---
+import "../styles/generel.css";
+const { data } = Astro.props;
+---
+
+<!-- hvad hvis der er mere end 2 filtreringer?? -->
+<a href=`${data.slug_wn}`><article>
+  <div class="date_div">
+    <p class="menu">{data.date}</p>
+  </div>
+  <div class="margin">
+    <div class="event_grid">
+      <div class="event_tekst">
+        <h2>{data.headline}</h2>
+        <p>{data.text[0]}</p>
+        <a class="read_more" href=`${data.slug_wn}`>read more ></a>
+      </div>
+      <div class="img_grid">
+        <img src={data.index_pictures} alt={data.index_headline} class="img_1"/>
+        <img src={data.pictures[2]} alt={data.index_headline} class="img_2"/>
+      </div>
+    </div>
+  </div>
+</article></a>
+
+<style>
+  a{
+    text-decoration: none;
+        display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+body{
+    margin: 0;
+}
+  .margin {
+    margin: 20px;
+  }
+  .menu {
+    text-align: left;
+    border-bottom: 0.5px solid #1e1e1e;
+    margin-bottom: 3%;
+  }
+
+  .date_div {
+    text-align: right;
+    width: 80%;
+    align-self: flex-end;
+  }
+  .event_tekst{
+    align-self: flex-end;
+    padding-left: 20px;
+    text-align: right;
+  }
+  .img_1 {
+    height: 320px;
+    margin-top: 65px;
+    margin-left: 25px;
+  }
+  .img_2 {
+    height: 120px;
+    width: 200px;
+    object-fit: cover;
+    left: -100px;
+    top: 20px;
+    position: relative;
+  }
+  .img_grid {
+    display: flex;
+    justify-content: left;
+  }
+  @media (min-width: 800px) {
+    .event_tekst{
+    padding-left: 500px;
+    padding-right: 35px;
+  }
+  .date_div {
+    width: 70%;
+  }
+  .img_1 {
+    margin-top: 15px;
+    margin-left: 450px;
+  }
+  .img_2 {
+    left: -80px;
+    top: -17px;
+  }
+  .menu {
+    font-size: 50px;
+  }
+  }
+</style>

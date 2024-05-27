@@ -41,6 +41,22 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
   </div>
 
   <div class="karrusel">
+    <!-- evt ændre her ift hvor mange billeder man vil have -->
+    {
+      indexData.map((data) => {
+        return <img src={data.index_pictures} alt={data.index_headline} />;
+      })
+    }
+    {
+      indexData.map((data) => {
+        return <img src={data.index_pictures2} alt={data.index_headline} />;
+      })
+    }
+    {
+      indexData.map((data) => {
+        return <img src={data.index_pictures} alt={data.index_headline} />;
+      })
+    }
     {
       indexData.map((data) => {
         return <img src={data.index_pictures} alt={data.index_headline} />;
@@ -102,6 +118,10 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     /* hides scrollbar */
     scrollbar-width: none;
   }
+
+  .karrusel.sliding_transition {
+    transition: transform 0.5s ease-in-out;
+  }
   body {
     margin: 0;
   }
@@ -115,6 +135,7 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
 
   img {
     object-fit: cover;
+    cursor: pointer;
   }
   * {
     margin: 0;
@@ -190,6 +211,12 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
 
     .karrusel {
       margin-top: 20px;
+    }
+    .karrusel img {
+      filter: grayscale(100%);
+    }
+    .karrusel img:hover {
+      filter: grayscale(0%);
     }
   }
 </style>
