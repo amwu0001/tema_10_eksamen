@@ -3,21 +3,34 @@ import Skelet from "../layout/skelet.astro";
 ---
 
 <Skelet>
+  <style>
+    .manag {
+      border-top: 0.5px solid #1e1e1e;
+
+      border-bottom: 0.5px solid #1e1e1e;
+    }
+    .booking {
+      border-bottom: 0.5px solid #1e1e1e;
+    }
+    .general {
+      border-bottom: 0.5px solid #1e1e1e;
+    }
+  </style>
   <h1>Contact</h1>
-  <hr />
-  <div>
+
+  <div class="manag">
     <h2>Management</h2>
-    <p>Coco Gaston</p>
+    <p>Coco Gaston(she/her)</p>
     <p>Coco@alpha.com</p>
   </div>
-  <hr />
-  <div>
+
+  <div class="booking">
     <h2>Booking & Live</h2>
-    <p>Hanne Bjerringfelt</p>
+    <p>Hanne Bjerringfelt(she/her)</p>
     <p>Hanne@alpha.com</p>
   </div>
-  <hr />
-  <div>
+
+  <div class="general">
     <h2>General Inquiries</h2>
     <p>alpha.mgmt@google.com</p>
   </div>
