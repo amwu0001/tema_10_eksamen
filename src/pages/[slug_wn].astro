@@ -27,18 +27,20 @@ const { myData } = Astro.props;
     <h3>{myData.type}</h3>
     <h3>{myData.date}</h3>
   </div>
-  <div class="grid_whatsnew">
+
+  <div class="p1_2img_grid">
     <img class="img_1" src={myData.pictures[0]} alt={myData.index_headline[0]} />
     <img class="img_2" src={myData.pictures[1]} alt={myData.index_headline[1]} />
-
     <div class="paragraf_1">
       <h2>{myData.headline}</h2>
       <p>{myData.text[0]}</p>
     </div>
   </div>
-  <div class="p2_3img">
+
+  <div class="p2_3img_grid">
     <div class="paragraf_2">
       <p>{myData.text[1]}</p>
+      <p>{myData.text[2]}</p>
     </div>
     <div class="raekke_img">
       <img src={myData.pictures[2]} alt={myData.pictures[2]} />
@@ -46,7 +48,8 @@ const { myData } = Astro.props;
       <img src={myData.pictures[4]} alt={myData.pictures[4]} />
     </div>
   </div>
-  <div class="img_6">
+
+  <div class="img6_grid">
     <img class="img_6_big" src={myData.pictures[5]} alt={myData.pictures[5]} />
     <img class="img_6_small" src={myData.pictures[5]} alt={myData.pictures[5]} />
   </div>
@@ -54,6 +57,7 @@ const { myData } = Astro.props;
 </Skelet>
 
 <style>
+  /* GENERELT */
   p {
     line-height: 1.7;
   }
@@ -67,27 +71,28 @@ const { myData } = Astro.props;
     width: 100%;
   }
 
-  .img_1 {
-    grid-column: 1/3;
-    height: 149px;
-    object-fit: cover;
-    object-position: 20% 26%;
-  }
-  .img_2 {
-    position: absolute;
-    left: px;
-    top: 30%;
-    width: 103px;
-    height: 387px;
-    object-fit: cover;
-    object-position: 71%;
-  }
-
-  .grid_whatsnew {
+  /* GRIDS */
+  .p1_2img_grid {
     display: grid;
     grid-template-columns: auto 60%;
     grid-template-rows: 1fr;
   }
+
+  .p2_3img_grid {
+    display: grid;
+    grid-template-columns: 5fr 3fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin: 15% 20px;
+  }
+
+  .img6_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+  }
+
+  /* TEKST */
 
   .paragraf_1 {
     grid-column: 2;
@@ -96,62 +101,61 @@ const { myData } = Astro.props;
   }
 
   .paragraf_2 {
-    width: 45%;
-    margin: 59px 32px;
+    grid-column: 1;
+    grid-row: 1/4;
+  }
+
+  /* BILLEDER */
+
+  .img_1 {
+    grid-column: 1/3;
+    height: 149px;
+    object-fit: cover;
+    object-position: 20% 26%;
+    position: relative;
+    left: 54px;
+  }
+  .img_2 {
+    position: relative;
+    left: -13%;
+    top: -6%;
+    width: 126px;
+    /* "klipper" og posistionerer billedet */
+    height: 387px;
+    object-fit: cover;
+    object-position: 71%;
   }
 
   .raekke_img {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 22%;
-    justify-content: unset;
-    margin-left: auto;
-    margin-right: 20px;
+    grid-column: 2;
+    grid-row: 1/4;
+    align-items: flex-end;
+    position: relative;
+    top: -70px;
+    left: 10px;
   }
   .raekke_img img {
     margin: 10px 10px;
-    width: 90%;
-  }
-
-  .p2_3img {
-    display: flex;
-    flex-direction: row;
-    height: 452px;
-  }
-
-  .img_6 {
-    margin: 20px 0;
+    width: 60%;
+    flex-wrap: nowrap;
   }
 
   .img_6_big {
-    margin: 0 20px;
+    grid-row: 1/3;
+    grid-column: 1/5;
+    width: 65%;
   }
   .img_6_small {
-    position: absolute;
-    bottom: -61%;
-    width: 29%;
-    left: 3%;
+    grid-row: 1/2;
+    grid-column: 1/3;
+    position: relative;
+    top: -20%;
+    left: -2%;
+    width: 56%;
   }
 
-  /* .img_1 {
-    margin-bottom: 30%;
+  @media (min-width: 800px) {
   }
-  .img_2 {
-    position: absolute;
-    left: 0;
-    top: 40%;
-    width: 30%;
-  }
-
-  .text {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-  }
-
-  h2,
-  p {
-    justify-content: end;
-  } */
 </style>
