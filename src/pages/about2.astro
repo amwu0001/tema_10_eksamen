@@ -5,42 +5,44 @@ import "../styles/generel.css";
 
 <Skelet>
   <h1>About</h1>
+  <div class="about_grid">
+    <div class="history_grid">
+      <h2>History</h2>
+      <p>Alpha is an artist management agency dedicated to supporting and promoting emerging talent in the music industry. Founded with a vision to create more space for alternative music in Denmark and beyond, Alpha focuses on empowering artists and helping them reach new audiences both domestically and internationally.</p>
+    </div>
 
-  <div class="history_grid">
-    <h2>History</h2>
-    <p>
-      Alpha is an artist management agency dedicated to supporting and promoting emerging talent in the music industry. Founded
-      with a vision to create more space for alternative music in Denmark and beyond, Alpha focuses on empowering artists and
-      helping them reach new audiences both domestically and internationally.
-    </p>
-  </div>
-
-  <div class="mission_grid">
+    <!-- <div class="mission_grid"> -->
     <div class="mission_kolonne1">
       <img src="/imgs/mission.png" alt="Coco og Hanne" />
     </div>
     <div class="mission_kolonne2">
       <h2>Mission</h2>
       <p>
-        One of our key missions is to foster diversity within the Danish music scene by championing up-and-coming artists and
-        providing them with the resources and support they need to thrive.<!-- Whether it's through artist services, event management,
+        One of our key missions is to foster diversity within the Danish music scene by championing up-and-coming artists and providing them with the resources and support they need to thrive.<!-- Whether it's through artist services, event management,
         or strategic partnerships, Alpha is committed to driving growth and innovation in the industry. -->
       </p>
     </div>
-  </div>
+    <!-- </div> -->
 
-  <div class="culture_grid">
-    <h2>Culture</h2>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
+    <div class="culture_grid">
+      <h2>Culture</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div class="cocohanne_img">
+      <img src="/imgs/cocohanne.png" alt="Coco and Hanne, the founders of Alpha" />
+    </div>
   </div>
 </Skelet>
 
 <style>
+  .about_grid {
+    display: inline-grid;
+    grid-template-columns: 6fr 4fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    /* padding: 10px 0px; */
+    border-top: 0.5px solid #1e1e1e;
+    border-bottom: 0.5px solid #1e1e1e;
+  }
   /* generelt */
   h1 {
     margin-left: 20px;
@@ -49,53 +51,108 @@ import "../styles/generel.css";
   body {
     margin: 8px 0px !important;
   }
+
   /*GRIDS  */
   .history_grid {
-    display: grid;
-    grid-template-columns: 100px 290px;
+    /* display: grid;
+    grid-template-columns: 100px 290px; */
+    display: flex;
     padding: 10px 0px;
-    border-top: 0.5px solid #1e1e1e;
+    /* border-top: 0.5px solid #1e1e1e; */
     border-bottom: 0.5px solid #1e1e1e;
+    grid-row: 1;
+    grid-column: 1/2 span;
   }
   .history_grid h2,
   p {
     margin: 0px 20px;
   }
 
-  .mission_grid {
+  /* .mission_grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 0px 20px;
-  }
+  } */
 
   .mission_kolonne1 {
     display: flex;
     align-items: center;
+    grid-column: 1;
+    grid-row: 2;
+    display: grid;
+  }
+  .mission_kolonne1 img {
+    margin: auto;
   }
 
   .mission_kolonne2 {
-    border-left: 0.1px solid #1e1e1e;
+    border-left: 0.5px solid #1e1e1e;
     padding-left: 20px;
     padding-bottom: 20px;
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
   }
   .mission_kolonne2 p {
     margin-left: 0;
   }
 
   .culture_grid {
-    display: grid;
-    grid-template-columns: 100px 290px;
+    /* display: grid;
+    grid-template-columns: 100px 290px; */
     padding: 10px 0px;
     border-top: 0.5px solid #1e1e1e;
     border-bottom: 0.5px solid #1e1e1e;
+    display: flex;
+    grid-row: 3;
+    grid-column: 1/2 span;
   }
   .culture_grid h2,
   p {
     margin: 0px 20px;
   }
+  .cocohanne_img {
+    grid-row: 4;
+    grid-column: 1/2 span;
+    display: flex;
+    align-items: center;
+    margin: auto;
+  }
+  @media (min-width: 800px) {
+    .about_grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      margin-bottom: 100px;
+    }
+    /*GRIDS  */
+    .history_grid {
+      grid-row: 1;
+      grid-column: 1;
+    }
+    .mission_kolonne1 {
+      grid-column: 2;
+      grid-row: 1/2 span;
+      border-left: 0.5px solid #1e1e1e;
+    }
 
-  /* BILLEDER */
-  .mission_grid img {
-    margin-right: 20px;
+    .mission_kolonne2 {
+      grid-column: 1;
+      grid-row: 2;
+      border-bottom: 0.5px solid #1e1e1e;
+      display: flex;
+    }
+
+    .culture_grid {
+      grid-row: 3;
+      grid-column: 2;
+      border-left: 0.5px solid #1e1e1e;
+      border-bottom: none;
+    }
+    .cocohanne_img {
+      grid-row: 3;
+      grid-column: 1;
+      height: 100%;
+      width: 100%;
+    }
   }
 </style>
