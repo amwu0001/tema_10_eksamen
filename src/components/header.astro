@@ -1,8 +1,220 @@
 ---
-import "../styles/generel.css";
-import LeftWn from "./Left_wn.astro";
-import RightWn from "./Right_wn.astro";
-const { data } = Astro.props;
 ---
-<LeftWn data={data}></LeftWn>
-<RightWn data={data}></RightWn>
+<style>
+  h2 {
+    line-height: 20px;
+  }
+  .line {
+    border: 0.5px solid #1e1e1e;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: #f1eee8;
+    height: 30px;
+  }
+  .gallery img {
+    width: 270px;
+    height: auto;
+    object-fit: cover;
+  }
+  .carousel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: hidden;
+    min-width: 100%;
+    /* Allow items to wrap if they exceed container width */
+    flex-wrap: nowrap;
+  }
+  header {
+    z-index: 100;
+    border-bottom: 0.5px solid #1e1e1e;
+  }
+  main {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    overflow-y: hidden;
+    position: fixed;
+    top: 68px;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+  }
+  .artist_grid {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    height: 100vh;
+    transition: 1s;
+    border-top: 0.5px solid #1e1e1e;
+  }
+  .side_bar {
+    border-right: 0.5px solid #1e1e1e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .cross_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .cross {
+    max-width: 35px;
+    cursor: pointer;
+  }
+  .side_text {
+    cursor: pointer;
+  }
+  .open_tab {
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 150px;
+    overflow: scroll;
+  }
+  .cross_gallery_txt {
+    display: none;
+  }
+  .info {
+    display: none;
+  }
+  /* ON CLICK - DET SOM ÆNDRER SIG* (INFO VIEW)*/
+
+  /*reverse grid*/
+  .artist_grid.change {
+    grid-template-columns: 4fr 1fr;
+    transition: 1s;
+  }
+
+  /*fjern gallery*/
+  .gallery.change {
+    display: none;
+  }
+
+  /*fjern + og info*/
+  .cross_info.change {
+    display: none;
+  }
+
+  .open_tab.change {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+  }
+  .cross_gallery_txt.change {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .cross_gallery.change {
+    cursor: pointer;
+  }
+  .side_text_gallery {
+    cursor: pointer;
+  }
+  img.cross_gallery {
+    max-width: 35px;
+  }
+  .info.change {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-evenly;
+    overflow: scroll;
+  }
+  .side_bar.change {
+    border-right: 1px solid #1e1e1e;
+    display: block;
+    padding: 20px 20px;
+    overflow: scroll;
+    padding-bottom: 150px;
+  }
+  .ikon {
+    max-width: 30px;
+  }
+  .ikon_ig {
+    max-width: 33px;
+  }
+  .socials {
+    gap: 7px;
+    display: flex;
+  }
+  footer {
+    background-color: #f1eee8;
+  }
+
+  @media (min-width: 800px) {
+    h2 {
+      line-height: 0px;
+      margin-top: 20px;
+    }
+    .gallery img {
+      width: auto;
+      height: 450px;
+      object-fit: cover;
+    }
+    .carousel {
+      flex-direction: row;
+      gap: 20px;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      margin-top: 40px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .gallery::-webkit-scrollbar {
+      display: none;
+    }
+    .ikon {
+      max-width: 35px;
+    }
+    .ikon_ig {
+      max-width: 37px;
+    }
+    .socials {
+      gap: 7px;
+      display: flex;
+    }
+    .artist_grid {
+      margin-top: 20px;
+    }
+    .line {
+      height: 50px;
+    }
+  }
+</style>
+<script>
+  const cross = document.querySelector(".cross");
+  const sidetext = document.querySelector(".side_text");
+  const grid = document.querySelector(".artist_grid");
+  const gallery = document.querySelector(".gallery");
+  const crossinfo = document.querySelector(".cross_info");
+  const opentab = document.querySelector(".open_tab");
+  const crossgallerytext = document.querySelector(".cross_gallery_txt");
+  const crossgallery = document.querySelector(".cross_gallery");
+  const info = document.querySelector(".info");
+  const sidebar = document.querySelector(".side_bar");
+
+  cross.addEventListener("click", open);
+  sidetext.addEventListener("click", open);
+  crossgallerytext.addEventListener("click", open);
+
+  function open() {
+    console.log("open");
+    grid.classList.toggle("change");
+    gallery.classList.toggle("change");
+    crossinfo.classList.toggle("change");
+    opentab.classList.toggle("change");
+    crossgallerytext.classList.toggle("change");
+    crossgallery.classList.toggle("change");
+    info.classList.toggle("change");
+    sidebar.classList.toggle("change");
+  }
+</script>
