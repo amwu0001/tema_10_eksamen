@@ -1,0 +1,81 @@
+---
+import Skelet from "../layout/skelet.astro";
+import "../styles/generel.css";
+---
+
+<Skelet>
+  <h1>About</h1>
+
+  <div class="history_grid">
+    <h2>History</h2>
+    <p>
+      Alpha is an artist management agency dedicated to supporting and promoting emerging talent in the music industry. Founded
+      with a vision to create more space for alternative music in Denmark and beyond, Alpha focuses on empowering artists and
+      helping them reach new audiences both domestically and internationally.
+    </p>
+  </div>
+
+  <div class="mission_grid">
+    <div class="mission_kolonne1">
+      <img src="/imgs/mission.png" alt="Coco og Hanne" />
+    </div>
+    <div class="mission_kolonne2">
+      <h2>Mission</h2>
+      <p>
+        One of our key missions is to foster diversity within the Danish music scene by championing up-and-coming artists and
+        providing them with the resources and support they need to thrive.<!-- Whether it's through artist services, event management,
+        or strategic partnerships, Alpha is committed to driving growth and innovation in the industry. -->
+      </p>
+    </div>
+  </div>
+
+  <div class="culture_grid">
+    <h2>Culture</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </div>
+</Skelet>
+
+<style>
+  /*GRIDS  */
+  .history_grid {
+    display: grid;
+    grid-template-columns: 100px 290px;
+    margin: 10px 20px;
+    border-top: 0.5px solid #1e1e1e;
+    border-bottom: 0.5px solid #1e1e1e;
+  }
+
+  .mission_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0px 20px;
+  }
+
+  .mission_kolonne1 {
+    display: flex;
+    align-items: center;
+  }
+
+  .mission_kolonne2 {
+    border-left: 0.1px solid #1e1e1e;
+    padding-left: 20px;
+  }
+
+  .culture_grid {
+    display: grid;
+    grid-template-columns: 100px 290px;
+    margin: 10px 20px;
+    border-top: 0.5px solid #1e1e1e;
+    border-bottom: 0.5px solid #1e1e1e;
+  }
+
+  /* BILLEDER */
+  .mission_grid img {
+    margin-right: 20px;
+  }
+</style>
