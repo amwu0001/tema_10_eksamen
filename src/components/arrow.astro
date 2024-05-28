@@ -1,22 +1,26 @@
 ---
-const {link} = Astro.props
-
+const { link } = Astro.props;
 ---
-<a href={link}><img class="arrow" src="/imgs/arrow.svg" alt="arrow back"/></a>
+
+<a href={link}><img class="arrow" src="/imgs/arrow.svg" alt="arrow back" /></a>
 
 <style>
-    .arrow{
-width: 25px;
-position: fixed;
-bottom: 10%;
-left: 5%;
+  .arrow {
+    width: 25px;
+    position: fixed;
+    bottom: 10%;
+    left: 5%;
+  }
+  .arrow:hover {
+    left: 1.5%;
+    transition: 2s;
+  }
+  @media (min-width: 800px) {
+    .arrow {
+      width: 25px;
+      position: fixed;
+      bottom: 10%;
+      left: 2%;
     }
- @media (min-width: 800px) {
-     .arrow{
-width: 25px;
-position: fixed;
-bottom: 10%;
-left: 2%;
-    }
-}
+  }
 </style>
