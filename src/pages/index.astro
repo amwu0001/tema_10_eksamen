@@ -17,7 +17,7 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
 }).then((res) => res.json());
 ---
 
-<Skelet>
+<Skelet title="Alpha">
   <div class="index_grid">
     <div class="title_og_img">
       <div class="overskrift_mobile">
@@ -43,7 +43,7 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
   </div>
   <div class="karrusel_parent">
     <div class="karrusel">
-      <!-- map igennem dataen og return et billede med tilhørende img src og alt text -->
+      <!-- map igennem dataen (to gange fordi der er to sæt med billeder vi vil have med) og return et billede med tilhørende img src og alt text -->
       {
         indexData.map((data) => {
           return <img src={data.index_pictures} alt={data.index_headline} />;
@@ -56,7 +56,7 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
       }
     </div>
 
-    <!-- karruseller fordi ... -->
+    <!-- der er to karruseller for at få dem til at køre seamless så det ligner de kører infinitely i loop -->
     <div class="karrusel">
       {
         indexData.map((data) => {

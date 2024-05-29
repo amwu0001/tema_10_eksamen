@@ -5,9 +5,9 @@ import Skelet from "../layout/skelet.astro";
 import News from "../components/news.astro";
 ---
 
-<Skelet>
+<Skelet title="What’s New?">
   <h1>What’s New?</h1>
-  <!-- <p>Read about latest releases, upcoming events, what's on our radar and much more!</p> -->
+  <p class="wn_intro">Read about latest releases, upcoming events, what's on our radar and much more!</p>
   <div class="filtrering">
     <p id="filter_all">All</p>
     <p id="filter_events">Events</p>
@@ -26,6 +26,22 @@ import News from "../components/news.astro";
 </Skelet>
 
 <style>
+  /* MOBILE */
+  /* generelt */
+  h1 {
+    margin-left: 20px;
+  }
+  #event_container {
+    margin-bottom: 50px;
+  }
+  .wn_intro {
+    margin: 20px;
+  }
+  .wn_intro:hover {
+    text-decoration: none;
+    pointer-events: none;
+  }
+  /* filtrering */
   .filtrering {
     display: flex;
     justify-content: space-between;
@@ -33,45 +49,58 @@ import News from "../components/news.astro";
     width: 70%;
   }
 
+  .filtrering p {
+    color: var(--red);
+  }
+
   p:hover {
     text-decoration: underline;
     cursor: pointer;
   }
-  h1 {
-    margin-left: 20px;
-  }
+
+  /* classes til js */
   .remove {
     display: none;
   }
-  #event_container {
-    margin-bottom: 50px;
-  }
+
   .underline {
     text-decoration: underline;
+    color: var(--sort) !important;
   }
+
+  /* DESKTOP */
   @media (min-width: 800px) {
-    .filtrering {
-      width: 30%;
+    /* generelt */
+    h1 {
       margin-left: 35px;
     }
-    h1 {
+    .wn_intro {
+      margin: 10px 35px 0px 35px;
+    }
+
+    /* filtrering */
+    .filtrering {
+      width: 30%;
       margin-left: 35px;
     }
   }
 </style>
 
 <script>
+  // declare konstanter
   const all = document.querySelector("#filter_all");
   const events = document.querySelector("#filter_events");
   const news = document.querySelector("#filter_news");
   const recommendations = document.querySelector("#filter_recommendations");
 
+  //   eventlisteners der kalder på de respektive funktioner når siden loades eller der klikkes
   window.addEventListener("load", showAll);
   all.addEventListener("click", showAll);
   news.addEventListener("click", newsFiltering);
   recommendations.addEventListener("click", recommendationFiltering);
   events.addEventListener("click", eventFiltering);
 
+  //   fjerner alle komponenter undtagen events og tilføjer underline på events i filtreringen
   function eventFiltering() {
     console.log(1);
     document.querySelector("#recommendation_container").classList.add("remove");
@@ -82,6 +111,9 @@ import News from "../components/news.astro";
     all.classList.remove("underline");
     news.classList.remove("underline");
   }
+
+  //   fjerner alle komponenter undtagen news og tilføjer underline på news i filtreringen
+
   function newsFiltering() {
     console.log(2);
     document.querySelector("#recommendation_container").classList.add("remove");
@@ -92,6 +124,9 @@ import News from "../components/news.astro";
     all.classList.remove("underline");
     events.classList.remove("underline");
   }
+
+  //   fjerner alle komponenter undtagen recommendations og tilføjer underline på recommendations i filtreringen
+
   function recommendationFiltering() {
     console.log(3);
     document.querySelector("#news_container").classList.add("remove");
@@ -102,6 +137,8 @@ import News from "../components/news.astro";
     all.classList.remove("underline");
     events.classList.remove("underline");
   }
+
+  // funktionen showAll kaldes når siden loades, og viser alle 3 komponenter og tilføjer underline på all i filtreringen
   function showAll() {
     console.log(4);
     document.querySelector("#recommendation_container").classList.remove("remove");
