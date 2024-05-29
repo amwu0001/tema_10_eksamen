@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 const { myData } = Astro.props;
 ---
 
-<Skelet>
+<Skelet title={myData.index_headline}>
   <div class="topbar">
     <h3>{myData.type}</h3>
     <h3>{myData.date}</h3>
