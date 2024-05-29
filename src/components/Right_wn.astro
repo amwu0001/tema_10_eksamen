@@ -14,7 +14,7 @@ const { data } = Astro.props;
         <div class="event_tekst">
           <h2>{data.headline}</h2>
           <p>{data.text[0]}</p>
-          <a class="read_more" href=`${data.slug_wn}`>read more</a>
+          <a class="read_more" href=`${data.slug_wn}`>read more ></a>
         </div>
         <div class="img_grid">
           <img src={data.index_pictures} alt={data.index_headline} class="img_1" />
@@ -49,6 +49,10 @@ const { data } = Astro.props;
     text-align: right;
     width: 80%;
     align-self: flex-end;
+    transition: 1s;
+  }
+  .date_div:hover {
+    width: 88%;
   }
   .event_tekst {
     align-self: flex-end;
