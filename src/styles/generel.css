@@ -3,6 +3,7 @@
   --sort: #1e1e1e;
   --gray: #8a8a89;
   --baggrund: #f1eee8;
+  --red: #c82d1f;
 }
 
 /* FONTE */
@@ -49,7 +50,7 @@ h3 {
   font-family: "Work Sans";
   font-size: 12px;
   font-weight: 600;
-  color: var(--gray);
+  color: var(--red);
   line-height: 12px;
 }
 

@@ -6,6 +6,8 @@ import "../styles/generel.css";
 
 const { data, link } = Astro.props;
 
+// fetch data fra supabase
+
 const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/atm", {
   method: "GET",
   headers: {
@@ -20,7 +22,6 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     <div class="title_og_img">
       <div class="overskrift_mobile">
         <h2>ALPHA</h2>
-        <a href="about2.html">ny about us</a>
         <h3>Management & Artist Services</h3>
       </div>
 
@@ -37,22 +38,12 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     </div>
   </div>
   <div class="overskrift_desktop">
-    <h2>ALPHA</h2>
-    <h3>Management & Artist Services</h3>
+    <h2 class="alpha">ALPHA</h2>
+    <h3 class="mgmt_txt">Management & Artist Services</h3>
   </div>
   <div class="karrusel_parent">
     <div class="karrusel">
-      <!-- evt ændre her ift hvor mange billeder man vil have -->
-      {
-        indexData.map((data) => {
-          return <img src={data.index_pictures} alt={data.index_headline} />;
-        })
-      }
-      {
-        indexData.map((data) => {
-          return <img src={data.index_pictures2} alt={data.index_headline} />;
-        })
-      }
+      <!-- map igennem dataen og return et billede med tilhørende img src og alt text -->
       {
         indexData.map((data) => {
           return <img src={data.index_pictures} alt={data.index_headline} />;
@@ -64,18 +55,9 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
         })
       }
     </div>
+
+    <!-- karruseller fordi ... -->
     <div class="karrusel">
-      <!-- evt ændre her ift hvor mange billeder man vil have -->
-      {
-        indexData.map((data) => {
-          return <img src={data.index_pictures} alt={data.index_headline} />;
-        })
-      }
-      {
-        indexData.map((data) => {
-          return <img src={data.index_pictures2} alt={data.index_headline} />;
-        })
-      }
       {
         indexData.map((data) => {
           return <img src={data.index_pictures} alt={data.index_headline} />;
@@ -94,46 +76,49 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
   window.addEventListener("DOMContentLoaded", init);
 
   function init() {
+    // declare variabler
     let karruselImages = document.querySelectorAll(".karrusel img");
     let bigImage = document.querySelector(".big_img_container img");
     let bigImageTitle = document.querySelector(".imgtxt");
     console.log("karruselImages", karruselImages);
 
+    // lyt på hvert billede om der bliver trykket og kør funktionen onImageDown
     karruselImages.forEach((img) => {
       img.addEventListener("mousedown", onImageDown);
     });
 
+    // variabel for det sidste billede der er trykket på
     let lastImg;
+
     function onImageDown(event) {
       console.log(event);
 
+      // fjerner farve fra lastImg
       if (lastImg) {
         lastImg.classList.remove("img_color");
       }
 
+      // ændrer bigImages source til det trykkede billedets source
       bigImage.src = event.target.src;
+      // ændrer  bigImageTitles textcontent til det trykkede billedes alt text
       bigImageTitle.textContent = event.target.alt;
+      // sørg for at bigImageTitle forbliver h3
       bigImageTitle.classList.add("h3_desktop");
-      event.target.classList.add("img_color");
 
+      // definer variabelen
       lastImg = event.target;
     }
   }
 </script>
 
 <style>
-  .img_color {
-    filter: grayscale(0%) !important;
-  }
-  .overskrift_desktop {
-    display: none;
-  }
+  /* STORT BILLEDE */
+
   .big_img_container {
     position: relative;
     width: 100%;
     z-index: -1;
   }
-
   .title_og_img {
     margin-left: auto;
   }
@@ -145,7 +130,19 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     height: 393px;
     object-fit: cover;
   }
+  .imgtxt {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Work Sans";
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 12px;
+    color: var(--sort);
+  }
 
+  /* KARRUSEL */
   @keyframes slide {
     from {
       transform: translateX(0);
@@ -154,7 +151,6 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
       transform: translateX(-100%);
     }
   }
-
   .karrusel_parent {
     overflow: hidden;
     white-space: nowrap;
@@ -169,19 +165,29 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     animation: 100s slide infinite linear;
     display: inline-block;
   }
-
-  /* .karrusel.sliding_transition {
-    transition: transform 0.5s ease-in-out;
-  } */
-  body {
-    margin: 0;
-  }
-
   .karrusel img {
     margin: 0 3px;
     object-fit: cover;
     width: 100px;
     height: 100px;
+  }
+  .karrusel img {
+    filter: grayscale(100%);
+  }
+  .karrusel img:hover {
+    filter: grayscale(0%);
+  }
+
+  /* GENERELT */
+  .img_color {
+    filter: grayscale(0%) !important;
+  }
+  .overskrift_desktop {
+    display: none;
+  }
+
+  body {
+    margin: 0;
   }
 
   img {
@@ -200,18 +206,6 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     margin-top: 10px;
   }
 
-  .imgtxt {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    font-family: "Work Sans";
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 12px;
-    color: var(--sort);
-  }
-
   .index_grid {
     display: flex;
     flex-direction: column;
@@ -228,15 +222,10 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     justify-content: space-between;
     margin-left: initial;
   }
-  .karrusel img {
-    filter: grayscale(100%);
-  }
-  .karrusel img:hover {
-    filter: grayscale(0%);
-  }
 
-  /* desktop view */
+  /* DESKTOP */
   @media (min-width: 800px) {
+    /* generel */
     .overskrift_mobile {
       display: none;
     }
@@ -245,6 +234,11 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
       margin-bottom: 10px;
       margin-left: 20px;
     }
+    .all_txt {
+      width: 346px;
+    }
+
+    /* stort billede */
     .big_img_container {
       display: flex;
       justify-content: flex-end;
@@ -261,10 +255,7 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
       margin-top: 5%;
       margin-bottom: 30px;
     }
-    .all_txt {
-      width: 346px;
-    }
-
+    /* karrusel */
     .karrusel {
       margin-top: 20px;
     }
