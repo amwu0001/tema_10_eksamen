@@ -43,12 +43,13 @@ const { data } = Astro.props; //dataen hentes fra astro.props
     font-weight: 300;
     font-size: 30px;
   }
-  .menu:hover {
-    width: 68%;
-  }
 
   .date_div {
     display: flex;
+    transition: 1s;
+  }
+  .date_div:hover {
+    width: 83%;
   }
   /*Sæt postition og størrelse på billedet*/
   img {
