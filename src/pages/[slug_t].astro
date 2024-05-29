@@ -7,8 +7,7 @@ export async function getStaticPaths() {
   const data = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/talent", {
     method: "GET",
     headers: {
-      apikey:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFubWF2YXh3aGpxcWhqZ2pxdXJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU1OTM0ODEsImV4cCI6MjAzMTE2OTQ4MX0.RDkLGM5hqlega6p_jA4OWoHfM2D8Iqrtah5GOXEY1e0",
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFubWF2YXh3aGpxcWhqZ2pxdXJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU1OTM0ODEsImV4cCI6MjAzMTE2OTQ4MX0.RDkLGM5hqlega6p_jA4OWoHfM2D8Iqrtah5GOXEY1e0",
     },
   }).then((response) => response.json());
 
@@ -57,7 +56,7 @@ console.log(talent);
           <div>
             <div>
               <h2>Management</h2>
-              <p>Coco Gaston: Coco@alpha.com</p>
+              <p class="gap_contact">Coco Gaston: Coco@alpha.com</p>
             </div>
             <div>
               <h2>Booking & Live</h2>
@@ -139,6 +138,8 @@ console.log(talent);
     min-width: 100%;
     /* Allow items to wrap if they exceed container width */
     flex-wrap: nowrap;
+    scrollbar-width: none;
+    padding-bottom: 100px;
   }
   header {
     z-index: 100;
@@ -178,6 +179,10 @@ console.log(talent);
   .cross {
     max-width: 35px;
     cursor: pointer;
+    transition: 1s;
+  }
+  .cross:hover {
+    transform: rotate(-50deg);
   }
   .side_text {
     cursor: pointer;
@@ -194,6 +199,7 @@ console.log(talent);
   .info {
     display: none;
   }
+
   /* ON CLICK - DET SOM ÆNDRER SIG* (INFO VIEW)*/
 
   /*reverse grid*/
@@ -229,6 +235,12 @@ console.log(talent);
   .cross_gallery.change {
     cursor: pointer;
   }
+  .cross_gallery {
+    transition: 1s;
+  }
+  .cross_gallery:hover {
+    transform: rotate(50deg);
+  }
   .side_text_gallery {
     cursor: pointer;
   }
@@ -246,18 +258,29 @@ console.log(talent);
     border-right: 0.5px solid #1e1e1e;
     display: block;
     padding: 20px 20px;
+    padding-bottom: 70px;
     overflow: scroll;
-    padding-bottom: 150px;
+    overflow-x: none;
   }
   .ikon {
     max-width: 30px;
+    transition: 1s;
   }
   .ikon_ig {
     max-width: 33px;
+    transition: 1s;
+  }
+  .ikon:hover,
+  .ikon_ig:hover {
+    scale: 1.05;
   }
   .socials {
     gap: 7px;
     display: flex;
+    padding-bottom: 170px;
+  }
+  .gap_contact {
+    margin-bottom: 40px;
   }
   footer {
     background-color: #f1eee8;
@@ -281,10 +304,7 @@ console.log(talent);
       margin-top: 40px;
       padding-left: 20px;
       padding-right: 20px;
-    }
-
-    .gallery::-webkit-scrollbar {
-      display: none;
+      padding-bottom: 0;
     }
     .ikon {
       max-width: 35px;
