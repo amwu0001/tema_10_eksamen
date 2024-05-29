@@ -12,13 +12,14 @@ export async function getStaticPaths() {
   }).then((response) => response.json());
   return data.map((post) => {
     return {
-      // liste over sider der skal genereres
+      // laver en url for hver side med et unikt slug
       params: { slug_wn: post.slug_wn },
-      //   sender props med ned til undersiden
+      //   sender props med ned til undersiden, hvor myData har værdien af post
       props: { myData: post },
     };
   });
 }
+// laver en constant med den data der er fra den unikke slug, her samles myData op
 const { myData } = Astro.props;
 ---
 
