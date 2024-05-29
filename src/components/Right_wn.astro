@@ -4,7 +4,7 @@ const { data } = Astro.props;
 ---
 
 <!-- indholdet udfyldes med det fra databasen ved at skrive {data."navn på kollonne"} -->
-<a href=`${data.slug_wn}`
+<a href=`/${data.slug_wn}.html`
   ><article>
     <div class="date_div">
       <p class="menu">{data.date}</p>
@@ -14,7 +14,7 @@ const { data } = Astro.props;
         <div class="event_tekst">
           <h2>{data.headline}</h2>
           <p>{data.text[0]}</p>
-          <a class="read_more" href=`${data.slug_wn}`>read more ></a>
+          <a class="read_more" href=`/${data.slug_wn}.html`>read more ></a>
         </div>
         <div class="img_grid">
           <img src={data.index_pictures} alt={data.index_headline} class="img_1" />

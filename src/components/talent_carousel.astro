@@ -14,7 +14,7 @@ const data = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/talen
 <div class="carousel">
   {
     data.map((data) => {
-      return <TalentCard data={data} link={`${data.slug}`} />;
+      return <TalentCard data={data} link={`/${data.slug}.html`} />;
     })
   }
 </div>
