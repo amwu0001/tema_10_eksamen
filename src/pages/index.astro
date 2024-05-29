@@ -104,6 +104,7 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
       bigImageTitle.textContent = event.target.alt;
       // sørg for at bigImageTitle forbliver h3
       bigImageTitle.classList.add("h3_desktop");
+      event.target.classList.add("img_color");
 
       // definer variabelen
       lastImg = event.target;
