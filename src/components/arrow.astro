@@ -5,12 +5,15 @@ const { link } = Astro.props;
 <a href={link}><img class="arrow" src="/imgs/arrow.svg" alt="arrow back" /></a>
 
 <style>
+  /*Sæt størrelse, placering og gør så den er fixed*/
   .arrow {
     width: 25px;
     position: fixed;
     bottom: 10%;
     left: 5%;
   }
+
+  /*Gør så den bevæger sig mod venstre ved hover*/
   .arrow:hover {
     left: 1.5%;
     transition: 2s;

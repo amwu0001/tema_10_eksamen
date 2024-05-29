@@ -3,7 +3,7 @@ import "../styles/generel.css";
 const { data } = Astro.props;
 ---
 
-<!-- hvad hvis der er mere end 2 filtreringer?? -->
+<!-- indholdet udfyldes med det fra databasen ved at skrive {data."navn på kollonne"} -->
 <a href=`${data.slug_wn}`
   ><article>
     <div class="date_div">
@@ -14,7 +14,7 @@ const { data } = Astro.props;
         <div class="event_tekst">
           <h2>{data.headline}</h2>
           <p>{data.text[0]}</p>
-          <a class="read_more" href=`${data.slug_wn}`>read more ></a>
+          <a class="read_more" href=`${data.slug_wn}`>read more</a>
         </div>
         <div class="img_grid">
           <img src={data.index_pictures} alt={data.index_headline} class="img_1" />
@@ -26,6 +26,7 @@ const { data } = Astro.props;
 >
 
 <style>
+  /* For kommentarer: tjek leftwn, da det næsten er ens*/
   a {
     text-decoration: none;
     display: flex;

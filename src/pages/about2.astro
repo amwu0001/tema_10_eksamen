@@ -3,7 +3,7 @@ import Skelet from "../layout/skelet.astro";
 import "../styles/generel.css";
 ---
 
-<Skelet>
+<Skelet link="About">
   <h1>About</h1>
   <div class="about_grid">
     <div class="history_grid">
@@ -35,6 +35,8 @@ import "../styles/generel.css";
 </Skelet>
 
 <style>
+  /* MAIN GRID  */
+
   .about_grid {
     display: inline-grid;
     grid-template-columns: 6fr 4fr;
@@ -54,14 +56,13 @@ import "../styles/generel.css";
   body {
     margin: 8px 0px !important;
   }
+  p {
+    margin: 0px 20px;
+  }
 
-  /*GRIDS  */
+  /* PLACERING AF ELEMENTER I GRID OG BORDERS  */
   .history_grid {
-    /* display: grid;
-    grid-template-columns: 100px 290px; */
     display: flex;
-    /* padding: 10px 0px; */
-    /* border-top: 0.5px solid #1e1e1e; */
     border-bottom: 0.5px solid #1e1e1e;
     grid-row: 1;
     grid-column: 1/2 span;
@@ -71,19 +72,7 @@ import "../styles/generel.css";
     padding-bottom: 3%;
     border-top: 0.5px solid #1e1e1e;
   }
-  p {
-    margin: 0px 20px;
-  }
 
-  /*.mission_grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      margin: 0px 20px;
-   }*/
-  /* .mission_kolonne1 h2,
-  p {
-    margin: 0px 20px;
-  } */
   .mission_kolonne1 {
     display: flex;
     align-items: center;
@@ -94,17 +83,9 @@ import "../styles/generel.css";
     padding-top: 3%;
     padding-bottom: 3%;
   }
-  .mission_kolonne1 img {
-    margin: auto;
-    max-width: 80%;
-    padding-top: 3%;
-    padding-bottom: 3%;
-  }
 
   .mission_kolonne2 {
     border-left: 0.5px solid #1e1e1e;
-    /*padding-left: 20px;
-      padding-bottom: 20px;*/
     grid-column: 2;
     grid-row: 2;
     display: flex;
@@ -113,14 +94,7 @@ import "../styles/generel.css";
     padding-top: 3%;
     padding-bottom: 3%;
   }
-  /* .mission_kolonne2 h2,
-  p {
-    margin: 0px 20px;
-  } */
-
   .culture_grid {
-    /* display: grid;
-    grid-template-columns: 100px 290px; */
     padding: 10px 0px;
     border-top: 0.5px solid #1e1e1e;
     border-bottom: 0.5px solid #1e1e1e;
@@ -142,29 +116,34 @@ import "../styles/generel.css";
     align-items: center;
     border-bottom: 0.5px solid #1e1e1e;
   }
+
+  /* STØRRELSE PÅ BILLEDER  */
   .cocohanne_img img {
     max-width: 80%;
     margin: auto;
     padding-top: 3%;
     padding-bottom: 3%;
   }
-
+  .mission_kolonne1 img {
+    margin: auto;
+    max-width: 80%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+  }
   @media (min-width: 800px) {
+    /* MAIN GRID  */
     .about_grid {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto;
       margin-bottom: 100px;
     }
-    /*GRIDS  */
+
+    /* PLACERING AF ELEMENTER I GRID OG BORDERS  */
     .history_grid {
       grid-row: 1;
       grid-column: 1;
       border-right: 0.5px solid #1e1e1e;
     }
-    /*.history_grid h2 {
-         margin: 7px 20px;
-      }*/
-
     .mission_kolonne1 {
       grid-column: 2;
       grid-row: 1/2 span;
@@ -193,6 +172,8 @@ import "../styles/generel.css";
       grid-column: 1;
       border-right: 0.5px solid #1e1e1e;
     }
+
+    /* STØRRELSE PÅ BILLEDER  */
     .cocohanne_img img {
       width: 50%;
     }
