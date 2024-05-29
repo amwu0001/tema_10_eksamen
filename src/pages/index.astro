@@ -141,6 +141,7 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     line-height: 12px;
     color: var(--sort);
   }
+
   /* KARRUSEL */
   @keyframes slide {
     from {
@@ -222,8 +223,9 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     margin-left: initial;
   }
 
-  /* desktop view */
+  /* DESKTOP */
   @media (min-width: 800px) {
+    /* generel */
     .overskrift_mobile {
       display: none;
     }
@@ -232,6 +234,11 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
       margin-bottom: 10px;
       margin-left: 20px;
     }
+    .all_txt {
+      width: 346px;
+    }
+
+    /* stort billede */
     .big_img_container {
       display: flex;
       justify-content: flex-end;
@@ -248,10 +255,7 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
       margin-top: 5%;
       margin-bottom: 30px;
     }
-    .all_txt {
-      width: 346px;
-    }
-
+    /* karrusel */
     .karrusel {
       margin-top: 20px;
     }
