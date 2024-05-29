@@ -1,10 +1,10 @@
 ---
 import "../styles/generel.css";
 
-const { data } = Astro.props;
+const { data } = Astro.props; //dataen hentes fra astro.props
 ---
 
-<!-- hvad hvis der er mere end 2 filtreringer?? -->
+<!-- indholdet udfyldes med det fra databasen ved at skrive {data."navn på kollonne"} -->
 <a href=`${data.slug_wn}`
   ><article class={data.type}>
     <div class="date_div">
@@ -29,20 +29,28 @@ const { data } = Astro.props;
   a {
     text-decoration: none;
   }
+  /*Sæt margin på det indhold der ligger inde i .margin*/
   .margin {
     margin: 20px;
   }
   .menu {
-    text-align: right;
-    border-bottom: 0.5px solid #1e1e1e;
-    width: 60%;
+    text-align: right; /*sæt teksten til højre*/
+    border-bottom: 0.5px solid #1e1e1e; /*lav streg under datoen*/
+    width: 60%; /*sæt længde på elementet*/
     align-self: flex-end;
     margin-bottom: 3%;
+    transition: 1s;
+    font-weight: 300;
+    font-size: 30px;
+  }
+  .menu:hover {
+    width: 68%;
   }
 
   .date_div {
     display: flex;
   }
+  /*Sæt postition og størrelse på billedet*/
   img {
     height: 265px;
     margin-top: 40px;
@@ -68,10 +76,10 @@ const { data } = Astro.props;
     }
     img {
       margin-top: 20px;
-      position: relative;
-      top: -200px;
-      left: 330px;
-      object-fit: cover;
+      position: relative; /*ændre position på billedet så det kan rykkes med top og left ift. parent element*/
+      top: -200px; /*ændre på placering på y-aksen*/
+      left: 330px; /*ændre placering på x-aksen*/
+      object-fit: cover; /* Gør så billedet bliver croppet, hvis det ikke passe ind i rammen */
       max-width: 300px;
     }
   }

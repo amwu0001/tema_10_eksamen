@@ -1,31 +1,28 @@
 ---
 const { gallery, gallery_txt } = Astro.props;
 ---
+
 <div class="gallery_card">
-   <img src={gallery[0]} alt="artist"/> 
-   <p class=".p_small">{gallery_txt[0]}</p>
+  <img src={gallery[0]} alt="artist" />
+  <p class=".p_small">{gallery_txt[0]}</p>
 </div>
 <div class="gallery_card">
-   <img src={gallery[1]} alt="artist"/> 
-   <p class=".p_small">{gallery_txt[1]}</p>
+  <img src={gallery[1]} alt="artist" />
+  <p class=".p_small">{gallery_txt[1]}</p>
 </div>
 <div class="gallery_card">
-   <img src={gallery[2]} alt="artist"/> 
-   <p class=".p_small">{gallery_txt[2]}</p>
+  <img src={gallery[2]} alt="artist" />
+  <p class=".p_small">{gallery_txt[2]}</p>
 </div>
 <div class="gallery_card">
-   <img src={gallery[3]} alt="artist"/> 
-   <p class=".p_small">{gallery_txt[3]}</p>
+  <img src={gallery[3]} alt="artist" />
+  <p class=".p_small">{gallery_txt[3]}</p>
 </div>
 
 <style>
-    img{
-        width: 270px;
-        height: auto;
-        object-fit: cover;
-    }
-    /*<div class="talent_card">
-   <img src="/imgs/kealin_grey.jpg" alt="artist"/> 
-   <p class=".p_small">01 / Alga</p>
-</div>*/
+  img {
+    width: 270px;
+    height: auto;
+    object-fit: cover;
+  }
 </style>

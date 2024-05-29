@@ -18,9 +18,17 @@
 <style>
   /**** STYLING AF BURGER MENU *****/
   @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap"); /* importer font */
+
+  /*skjul burgermenu*/
   #navbar_mobile {
     display: none;
   }
+  /*skjul kryds ikon*/
+  #ikon_kryds {
+    display: none;
+  }
+
+  /*gør så burger menu fylder hele skærmen og ligger over andet indhold*/
   #navbar_mobile.hide {
     width: 100%;
     height: 100%;
@@ -31,13 +39,17 @@
     left: 0; /* starter fra venstre */
     overflow-x: hidden; /* Ingen horizontal scroll */
   }
-  /*tekst*/
+
+  /*tekst i burgermenu*/
   a {
     color: #1e1e1e;
     text-decoration: none;
     font-family: "Work Sans";
+    font-weight: 300;
     font-size: 30px;
+    transition: 1s;
   }
+
   /* lav flex row på menuen*/
   #navbar_mobile.hide {
     display: flex;
@@ -47,19 +59,19 @@
     padding-top: 30px;
     padding-bottom: 30px;
   }
-  #ikon_kryds {
-    display: none;
-  }
+  /*Vis kryds ikon ved klik og gør så den sidder over burgermenuen*/
   #ikon_kryds.change {
     display: block;
     max-width: 40px;
     z-index: 130;
     cursor: pointer;
   }
+  /*Skjul burger ikon, når burgermenuen er åben*/
   .ikon_burger.hide {
     display: none;
   }
-  /*streger over og under + position af tekst*/
+
+  /*streger over og under + position af tekst i burgermenuen*/
   .right_nav_mobile {
     text-align: left;
     border-bottom: 0.5px solid #1e1e1e;
@@ -72,13 +84,15 @@
     text-align: right;
     width: 70%;
   }
-  /*hover-effekt*/
+
+  /*hover-effekt, så stregerne bliver længere*/
   a:hover {
     width: 80%;
-    transition: 1s;
   }
 
   /**** STYLING AF HEADER *****/
+
+  /*Flex på header og positionering af items*/
   .header_mobile {
     justify-content: space-between;
     align-items: center;
@@ -86,22 +100,26 @@
     padding-left: 20px;
     padding-right: 20px;
   }
+  /*styling af burger ikon*/
   .ikon_burger {
     max-width: 40px;
     z-index: 100;
     cursor: pointer;
   }
+  /*styling af logo*/
   .logo {
     max-width: 55px;
     z-index: 110;
     position: relative;
   }
+  /*lav hover på begge ikoner, så de skaleres en smule op*/
   .logo:hover {
     scale: 1.05;
   }
   .ikon_burger:hover {
     scale: 1.05;
   }
+
   @media (min-width: 800px) {
     .logo {
       max-width: 90px;
@@ -119,13 +137,18 @@
 </style>
 
 <script>
+  // lav konstanter for burger ikon, burger menu og kryds ikon
   const burger = document.querySelector(".ikon_burger");
   const menu = document.querySelector("#navbar_mobile");
   const kryds = document.querySelector(".header_mobile #ikon_kryds");
 
+  // kald funktionen burgermenu, når der klikkes på burger eller kryds
   burger.addEventListener("click", burgermenu);
   kryds.addEventListener("click", burgermenu);
 
+  // toggle class: hide og change (svarer til add ved klik på burgerikon og remove ved klik på kryds)
+  // Hvis burgerikonet klikkes vises burgermenuen, og ligger sig ovenpå resten af indholdet
+  // Hvis burgerikonet klikkes erstattes burgerikonet med krydset
   function burgermenu() {
     console.log("burger");
     menu.classList.toggle("hide");

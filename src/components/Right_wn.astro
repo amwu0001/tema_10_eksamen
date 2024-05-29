@@ -3,7 +3,7 @@ import "../styles/generel.css";
 const { data } = Astro.props;
 ---
 
-<!-- hvad hvis der er mere end 2 filtreringer?? -->
+<!-- indholdet udfyldes med det fra databasen ved at skrive {data."navn på kollonne"} -->
 <a href=`${data.slug_wn}`
   ><article>
     <div class="date_div">
@@ -26,6 +26,7 @@ const { data } = Astro.props;
 >
 
 <style>
+  /* For kommentarer: tjek leftwn, da det næsten er ens*/
   a {
     text-decoration: none;
     display: flex;
@@ -42,12 +43,18 @@ const { data } = Astro.props;
     text-align: left;
     border-bottom: 0.5px solid #1e1e1e;
     margin-bottom: 3%;
+    font-weight: 300;
+    font-size: 30px;
   }
 
   .date_div {
     text-align: right;
     width: 80%;
     align-self: flex-end;
+    transition: 1s;
+  }
+  .date_div:hover {
+    width: 88%;
   }
   .event_tekst {
     align-self: flex-end;

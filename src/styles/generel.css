@@ -1,11 +1,3 @@
-/* FARVER */
-:root {
-  --sort: #1e1e1e;
-  --gray: #8a8a89;
-  --baggrund: #f1eee8;
-  --red: #c82d1f;
-}
-
 /* FONTE */
 /* regular */
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap");
@@ -13,6 +5,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap");
 /* ekstra bold */
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap");
+
+/* FARVER */
+:root {
+  --sort: #1e1e1e;
+  --gray: #8a8a89;
+  --baggrund: #f1eee8;
+  --red: #c82d1f;
+}
 
 /* mobile */
 h1 {
@@ -109,7 +109,6 @@ header {
   left: 0;
   top: 0;
   z-index: 10;
-  /* background-color: #f1eee8; */
 }
 footer {
   padding-top: 10px;
@@ -119,7 +118,6 @@ footer {
   margin: 0;
   bottom: 0;
   left: 0;
-  /* background-color: #f1eee8; */
 }
 
 /* desktop */
