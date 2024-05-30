@@ -43,7 +43,8 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
   </div>
   <div class="karrusel_parent">
     <div class="karrusel">
-      <!-- map igennem dataen (to gange fordi der er to sæt med billeder vi vil have med) og return et billede med tilhørende img src og alt text -->
+      <!-- map igennem dataen (to gange fordi der er to sæt med billeder vi vil have med) og return et billede 
+        med tilhørende img src og alt text -->
       {
         indexData.map((data) => {
           return <img src={data.index_pictures} alt={data.index_headline} />;
@@ -57,6 +58,7 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
     </div>
 
     <!-- der er to karruseller for at få dem til at køre seamless så det ligner de kører infinitely i loop -->
+
     <div class="karrusel">
       {
         indexData.map((data) => {
@@ -73,41 +75,40 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
 </Skelet>
 
 <script>
+  // HJÆLP AF PETER MED JS
   window.addEventListener("DOMContentLoaded", init);
 
   function init() {
-    // declare variabler
+    // declare variabler for billederne og billedteksten
     let karruselImages = document.querySelectorAll(".karrusel img");
     let bigImage = document.querySelector(".big_img_container img");
     let bigImageTitle = document.querySelector(".imgtxt");
     console.log("karruselImages", karruselImages);
+    // variabel for det sidste billede der er trykket på
+    let lastImg;
 
     // lyt på hvert billede om der bliver trykket og kør funktionen onImageDown
     karruselImages.forEach((img) => {
       img.addEventListener("mousedown", onImageDown);
     });
 
-    // variabel for det sidste billede der er trykket på
-    let lastImg;
-
     function onImageDown(event) {
-      console.log(event);
-
-      // fjerner farve fra lastImg
-      if (lastImg) {
-        lastImg.classList.remove("img_color");
-      }
-
       // ændrer bigImages source til det trykkede billedets source
       bigImage.src = event.target.src;
       // ændrer  bigImageTitles textcontent til det trykkede billedes alt text
       bigImageTitle.textContent = event.target.alt;
-      // sørg for at bigImageTitle forbliver h3
-      bigImageTitle.classList.add("h3_desktop");
+      // tilføj farve på det klikkede billede
       event.target.classList.add("img_color");
 
+      // fjerner farve fra det sidste klikkede billede
+      if (lastImg) {
+        lastImg.classList.remove("img_color");
+      }
       // definer variabelen
       lastImg = event.target;
+
+      // sørg for at bigImageTitle forbliver h3
+      bigImageTitle.classList.add("h3_desktop");
     }
   }
 </script>
@@ -180,9 +181,11 @@ const indexData = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/
   }
 
   /* GENERELT */
+
   .img_color {
     filter: grayscale(0%) !important;
   }
+
   .overskrift_desktop {
     display: none;
   }
