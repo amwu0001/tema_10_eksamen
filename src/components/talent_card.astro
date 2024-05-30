@@ -4,7 +4,7 @@ const { data, link } = Astro.props;
 
 <a href={link}>
   <div class="talent_card">
-    <img src={data.picture} alt="artist" />
+    <img src={data.gallery[0]} alt="artist" />
     <h2>{data.name}</h2>
     <!-- Ved array data anvendes [], så der kun vælges et object(i dette tilfælde en "genre") af gangen -->
     <div class="genre">
