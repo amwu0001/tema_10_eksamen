@@ -26,6 +26,7 @@
   /*skjul kryds ikon*/
   #ikon_kryds {
     display: none;
+    transition: 1s;
   }
 
   /*gør så burger menu fylder hele skærmen og ligger over andet indhold*/
@@ -66,6 +67,7 @@
     max-width: 40px;
     z-index: 130;
     cursor: pointer;
+    animation: 0.3s swirl linear;
   }
   /*Skjul burger ikon, når burgermenuen er åben*/
   .ikon_burger.hide {
@@ -118,6 +120,14 @@
       transform: translateX(0);
     }
   }
+  @keyframes swirl {
+    from {
+      transform: rotate(90deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
   /*tilføj animerede transitions til menupunkter*/
   #talent {
     animation: 0.5s right ease-in-out;
@@ -158,14 +168,16 @@
     height: auto;
     transition: 1s;
   }
-  /*lav hover på begge ikoner, så de skaleres en smule op*/
+  /*lav hover på ikoner, så de skaleres en smule op*/
   .logo:hover {
     scale: 1.05;
   }
   .ikon_burger:hover {
     scale: 1.05;
   }
-
+  #ikon_kryds:hover {
+    scale: 1.05;
+  }
   @media (min-width: 800px) {
     .logo {
       max-width: 90px;
