@@ -9,10 +9,10 @@
     <img id="ikon_kryds" src="/imgs/kryds.svg" alt="kryds" />
   </div>
   <div id="navbar_mobile">
-    <a href="/talent.html" class="right_nav_mobile">TALENT</a>
-    <a href="/whats_new.html" class="left_nav_mobile">WHAT'S NEW?</a>
-    <a href="/about2.html" class="right_nav_mobile">ABOUT</a>
-    <a href="/contact.html" class="left_nav_mobile">CONTACT</a>
+    <a href="/talent.html" class="right_nav_mobile" id="talent">TALENT</a>
+    <a href="/whats_new.html" class="left_nav_mobile" id="wn">WHAT'S NEW?</a>
+    <a href="/about2.html" class="right_nav_mobile" id="about">ABOUT</a>
+    <a href="/contact.html" class="left_nav_mobile" id="contact">CONTACT</a>
   </div>
 </header>
 <style>
@@ -26,6 +26,7 @@
   /*skjul kryds ikon*/
   #ikon_kryds {
     display: none;
+    transition: 1s;
   }
 
   /*gør så burger menu fylder hele skærmen og ligger over andet indhold*/
@@ -38,6 +39,7 @@
     top: 0; /* starter fra toppen */
     left: 0; /* starter fra venstre */
     overflow-x: hidden; /* Ingen horizontal scroll */
+    animation: 0.3s opacity ease-in-out;
   }
 
   /*tekst i burgermenu*/
@@ -65,6 +67,7 @@
     max-width: 40px;
     z-index: 130;
     cursor: pointer;
+    animation: 0.3s swirl linear;
   }
   /*Skjul burger ikon, når burgermenuen er åben*/
   .ikon_burger.hide {
@@ -90,6 +93,55 @@
     width: 80%;
   }
 
+  /*keyframes til animerede transitions*/
+  @keyframes opacity {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes right {
+    from {
+      transform: translateX(1300px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes left {
+    from {
+      transform: translateX(-1300px);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes swirl {
+    from {
+      transform: rotate(90deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+  /*tilføj animerede transitions til menupunkter*/
+  #talent {
+    animation: 0.5s right ease-in-out;
+  }
+  #wn {
+    animation: 0.7s left ease-in-out;
+  }
+  #about {
+    animation: 0.9s right ease-in-out;
+  }
+  #contact {
+    animation: 1.1s left ease-in-out;
+  }
+
   /**** STYLING AF HEADER *****/
 
   /*Flex på header og positionering af items*/
@@ -106,6 +158,7 @@
     z-index: 100;
     cursor: pointer;
     height: auto;
+    transition: 1s;
   }
   /*styling af logo*/
   .logo {
@@ -113,15 +166,18 @@
     z-index: 110;
     position: relative;
     height: auto;
+    transition: 1s;
   }
-  /*lav hover på begge ikoner, så de skaleres en smule op*/
+  /*lav hover på ikoner, så de skaleres en smule op*/
   .logo:hover {
     scale: 1.05;
   }
   .ikon_burger:hover {
     scale: 1.05;
   }
-
+  #ikon_kryds:hover {
+    scale: 1.05;
+  }
   @media (min-width: 800px) {
     .logo {
       max-width: 90px;

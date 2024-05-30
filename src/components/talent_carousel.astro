@@ -4,8 +4,7 @@ import TalentCard from "./talent_card.astro";
 const data = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/talent?order=name.asc", {
   method: "GET",
   headers: {
-    apikey:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFubWF2YXh3aGpxcWhqZ2pxdXJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU1OTM0ODEsImV4cCI6MjAzMTE2OTQ4MX0.RDkLGM5hqlega6p_jA4OWoHfM2D8Iqrtah5GOXEY1e0",
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFubWF2YXh3aGpxcWhqZ2pxdXJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU1OTM0ODEsImV4cCI6MjAzMTE2OTQ4MX0.RDkLGM5hqlega6p_jA4OWoHfM2D8Iqrtah5GOXEY1e0",
   },
 }).then((res) => res.json());
 ---
@@ -31,5 +30,11 @@ const data = await fetch("https://qnmavaxwhjqqhjgjqurq.supabase.co/rest/v1/talen
     padding-left: 20px;
     padding-right: 40px;
     scrollbar-width: none;
+    margin-bottom: 130px;
+  }
+  @media (min-width: 800px) {
+    .carousel {
+      margin-bottom: 0px;
+    }
   }
 </style>
